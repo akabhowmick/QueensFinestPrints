@@ -1,6 +1,7 @@
 import {
   faMinusCircle,
   faPlusCircle,
+  faWindowClose,
   // faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,12 +9,12 @@ import { useState } from "react";
 import { useCartContext } from "../../providers/CartProvider";
 import "./Cart.css";
 
-export const SideCart  = () => {
+export const SideCart = () => {
   const { cartItems, removeFromCart, changeItemQuantity, total, finalTotal } = useCartContext();
   const [cartMode, setCartMode] = useState(false);
-  // const toggleCart = () => {
-  //   setCartMode(!cartMode);
-  // };
+  const toggleCart = () => {
+    setCartMode(!cartMode);
+  };
 
   const cartTotalDetails = [
     { name: "Cart Subtotal: $", value: parseFloat(total.toFixed(2)) },
@@ -82,10 +83,10 @@ export const SideCart  = () => {
     <>
       {/* side cart when open */}
       <div className={`side-cart  ${cartMode && "open-cart"}`}>
-        {/* <div className="side-cart-header">
+        <div className="side-cart-header">
           <FontAwesomeIcon icon={faWindowClose} onClick={() => toggleCart()} />
           Cart ({cartItems.length})
-        </div> */}
+        </div>
         {cartItems?.length === 0 ? (
           <h3 style={{ color: "white" }}>Your cart is empty!</h3>
         ) : (
@@ -96,4 +97,3 @@ export const SideCart  = () => {
     </>
   );
 };
-
