@@ -113,6 +113,7 @@ const gameCardHolder: Product = {
     "We present to your attention our Game Display Card Holder Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
     "Card Storage Stand is the perfect way to display your affirmation card, business card. The perfect Card Organizer for people who just want to showcase their information cards in the workplace.",
   ],
+  requiredCustomizations: commonCustomizations,
   details: [
     "Display your favorite sports, trading cards or Display Tier Business Card Stand IN FASHION.",
     "Game Display Card Holder Stand is the best gift for business owners and other professionals.",
@@ -140,6 +141,7 @@ const horizontalSixCardStand: Product = {
     "We present to your attention our 6 Card (Horizontal) Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professional's day gift.",
     "Sports card displays are the perfect way to display your sports cards along with your brand!",
   ],
+  requiredCustomizations: commonCustomizations,
   details: [
     "Display your favorite sports or trading card with YOUR logo or your own personalized wording. Lead time for custom orders is around 7-10 days for manufacturing!",
     "This custom stand fits 6 cards of any size!",
@@ -232,6 +234,7 @@ const cityStand: Product = {
     "Once we agree on your request you will receive the design via email within 24 hours.",
     "Please DO NOT purchase unless your request was already approved by me, thank you.",
   ],
+  requiredCustomizations: commonCustomizations,
   details: [
     "This New York City Sign New York skyline sign is the perfect way to display your love for the city of New York! Whether you're a New York native or just a fan from afar, this 3D laser cut sign is sure to impress.",
     "We have the following colors: Black, White, Grey, Red, Green, Yellow, Blue, Orange, Blue-Green, Magenta, and Glow in the Dark",
@@ -285,6 +288,7 @@ const keyChain: Product = {
     "Custom Keychains are small, circular accessories made from a durable piece that is commonly used to hold keys.",
     "Unique Backpack Keychain is a popular item due to its simplicity and versatility, and Aesthetic Safety Keychain can be used for personal use or given to your friends.",
   ],
+  requiredCustomizations: commonCustomizations,
   details: [
     "Custom Keychains with a message, date, name or coordinate for a gift that is both sweet and practical.",
     "Personalize Keychain, it is sure to be a special charm they will treasure for many moments to come. Double-sided engravings are also available for double the sweet sentiments.",
