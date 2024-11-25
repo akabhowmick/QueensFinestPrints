@@ -96,13 +96,20 @@ export default function Review() {
           </Typography>
           <Typography variant="subtitle1" gutterBottom sx={{ mt: 2 }}>
             Please save this number for future reference and for us to use when sending us your
-            customizations.
+            customizations!!!
           </Typography>
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        <form action={orderReviewFormId}>
+        <form action={orderReviewFormId} method="POST">
           <input type="hidden" name="_redirect" value={uploadImagePage} />
+          <input type="hidden" name="_cc" value="christiancardenas13@gmail.com" />
+          <input type="text" name="_honey" style={{ display: "none" }} />
+          <input
+            type="hidden"
+            name="_subject"
+            value="Order Summary for Queens Finest Prints order!"
+          />
           {FormSubmitIoInputs}
           {cartItems.map((product) => {
             return (

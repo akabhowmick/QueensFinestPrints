@@ -50,10 +50,13 @@ export const ContactForm = () => {
   );
 
   return (
-    <form action={contactFormId}>
+    <form action={contactFormId} method="POST">
       <h4>Get in touch!</h4>
       <div className="contact__form-container">
         <input type="text" name="_honey" style={{ display: "none" }} />
+        <input type="hidden" name="_subject" value="Inquiry for Queens Finest Prints!" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_cc" value="christiancardenas13@gmail.com" />
         {contactFormInputs}
         {selectClasses}
         <div className="submit-btn-container">
