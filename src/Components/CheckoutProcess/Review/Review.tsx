@@ -103,7 +103,7 @@ export default function Review() {
       <Grid item xs={12}>
         <form action={orderReviewFormId} method="POST">
           <input type="hidden" name="_redirect" value={uploadImagePage} />
-          <input type="hidden" name="_cc" value="christiancardenas13@gmail.com" />
+          <input type="hidden" name="_cc" value="queensfinestprints@gmail.com" />
           <input type="text" name="_honey" style={{ display: "none" }} />
           <input
             type="hidden"

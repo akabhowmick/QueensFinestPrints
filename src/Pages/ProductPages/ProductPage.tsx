@@ -9,12 +9,17 @@ export const ProductPage = ({
   pageHeader: string;
   pageContent: string;
 }) => {
-  const productList: Product[] =
-    pageContent === "sports"
-      ? products.filter((product) => product.type === "Sports")
-      : pageContent === "desk-toppers"
-      ? products.filter((product) => product.type === "Desk-Topper")
-      : products;
+  let productList: Product[];
+
+  if (pageContent === "Card Stands") {
+    productList = products.filter((product) => product.type === "Card Stands");
+  } else if (pageContent === "Holders and Accessories") {
+    productList = products.filter((product) => product.type === "Holders and Accessories");
+  } else if (pageContent === "Stadiums") {
+    productList = products.filter((product) => product.type === "Stadium");
+  } else {
+    productList = products;
+  }
 
   return (
     <div className="product-page">

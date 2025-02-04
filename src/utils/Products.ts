@@ -61,7 +61,7 @@ const cardStand: Product = {
   desc: "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   quantity: 1,
   id: 1,
-  type: "Sports",
+  type: "Card Stands",
   learnMoreLink: "/products/1",
 };
 
@@ -89,9 +89,9 @@ const gameCardHolder: Product = {
   images: [gameCardHolder1, gameCardHolder2, gameCardHolder3],
   desc: "",
   quantity: 1,
-  id: 3,
-  type: "Sports",
-  learnMoreLink: "/products/3",
+  id: 2,
+  type: "Card Stands",
+  learnMoreLink: "/products/2",
 };
 
 // horizontal
@@ -118,9 +118,9 @@ const horizontalSixCardStand: Product = {
   images: [hsh1, hsh2],
   desc: "",
   quantity: 1,
-  id: 4,
-  type: "Sports",
-  learnMoreLink: "/products/4",
+  id: 3,
+  type: "Card Stands",
+  learnMoreLink: "/products/3",
 };
 
 // 3 card
@@ -150,9 +150,9 @@ const threeCardStand: Product = {
   images: [h1, h2, h3],
   desc: "3 Cards Custom Logo Card Stand, Sports Card Display, Trading Card Display Stand, Business Card Stand, Card Organizer, Card Holder Stand",
   quantity: 1,
-  id: 6,
-  type: "Sports",
-  learnMoreLink: "/products/6",
+  id: 4,
+  type: "Card Stands",
+  learnMoreLink: "/products/4",
 };
 
 // city stand
@@ -175,9 +175,9 @@ const cityStand: Product = {
   images: [cs1, cs2, cs3],
   desc: "Custom City Stand!",
   quantity: 1,
-  id: 8,
-  type: "Desk-Topper",
-  learnMoreLink: "/products/8",
+  id: 5,
+  type: "Holders and Accessories",
+  learnMoreLink: "/products/5",
 };
 
 // keychains
@@ -204,9 +204,62 @@ const keyChain: Product = {
   images: [k1, k2, k3, k4],
   desc: "Your Personalized Keychain",
   quantity: 1,
+  id: 6,
+  type: "Holders and Accessories",
+  learnMoreLink: "/products/6",
+};
+
+//city life stadiums
+const CLStadium: Product = {
+  name: "Unique Custom Signature Keychain - With your Logo",
+  price: 10.0,
+  shortDetails: [
+    "Custom Keychains are small, circular accessories made from a durable piece that is commonly used to hold keys.",
+    "Unique Backpack Keychain is a popular item due to its simplicity and versatility, and Aesthetic Safety Keychain can be used for personal use or given to your friends.",
+  ],
+  requiredCustomizations: commonCustomizations,
+  details: [
+    "Custom Keychains with a message, date, name or coordinate for a gift that is both sweet and practical.",
+    "Personalize Keychain, it is sure to be a special charm they will treasure for many moments to come. Double-sided engravings are also available for double the sweet sentiments.",
+    "Send these out as giveaways to your subscribers/customers to show off and advertise your brand. It's like a walking advertisement! Or just gain style points walking around with your logo on your keychain or backpack! Our design team will work with you to come up with the perfect unique design that you want to show off!",
+    "This Custom Keychains is designed exactly how you want it!",
+    "Material: PLA (Polylactic acid)",
+    "Size: Typically 1.5in. x 1.5in. (varies on customization)",
+    "After placing your order:",
+    "- Send us your logo and we will send you a mock-up of how the keychains will come out.",
+    "- You comment or approve the rendering",
+    "- We go into production and ship out ASAP!",
+  ],
+  images: [k1, k2, k3, k4],
+  desc: "Your Personalized Keychain",
+  quantity: 1,
   id: 7,
-  type: "Desk-Topper",
+  type: "Stadiums",
   learnMoreLink: "/products/7",
+};
+
+//golden center stadiums
+const GCStadium: Product = {
+  name: "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium - Light The Beam Customization!",
+  price: 135.0,
+  shortDetails: [
+    "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium - Light The Beam Customization!",
+    "This well-detailed 3D printed model is the perfect gift, souvenir, or collectible for every Sacramento Kings super fan. Looks fantastic on any desk, counter, dresser, or stand. This stadium has a removable roof option to allow for a full view of the basketball court, along with a projection of the purple beam.",
+  ],
+  requiredCustomizations: commonCustomizations,
+  details: [
+    "The purple beam is lit up using LED lights - included.",
+    "Custom/personalized labels are available for $15. Message me if interested and I will create a custom order.",
+    "Measurements: 6in x 6in x 3in (Beam projects 5in, making the total height 8in tall)",
+    "Please keep in mind that every 3D-printed part is unique. The photos give a good representation of what to expect.",
+    "Please contact me with any questions at queensfinestprints@gmail.com"
+  ],
+  images: [k1, k2, k3, k4],
+  desc: "YGolden 1 Center Replica Stadium",
+  quantity: 1,
+  id: 8,
+  type: "Stadiums",
+  learnMoreLink: "/products/8",
 };
 
 export const products: Product[] = [
@@ -216,4 +269,6 @@ export const products: Product[] = [
   gameCardHolder,
   keyChain,
   cityStand,
+  CLStadium,
+  GCStadium
 ];

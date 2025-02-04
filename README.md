@@ -24,4 +24,4 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 products add
   12-Card Bleacher Display 
   Replica Stadium 
-  etsy background animation 
+- etsy background animation 

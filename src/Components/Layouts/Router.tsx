@@ -17,12 +17,16 @@ export const router = createBrowserRouter(
       <Route path="home" element={<Home />} />
       <Route path="all" element={<ProductPage pageHeader="All Products" pageContent="all" />} />
       <Route
-        path="sports"
-        element={<ProductPage pageHeader="Custom Sports 3d Items" pageContent="all" />}
+        path="card-stands"
+        element={<ProductPage pageHeader="Custom Card Stands" pageContent="Card Stands" />}
       />
       <Route
-        path="desk-toppers"
-        element={<ProductPage pageHeader="Custom Desk Toppers" pageContent="desk-toppers" />}
+        path="holders-and-accessories"
+        element={<ProductPage pageHeader="Custom Holders and Accessories" pageContent="Holders and Accessories" />}
+      />
+       <Route
+        path="stadiums"
+        element={<ProductPage pageHeader="Custom Replica Stadium" pageContent="Stadiums" />}
       />
       <Route path="/products/:productId" element={<ProductDescriptionPage />} />
       <Route path="/cart" element={<CartPage />} />

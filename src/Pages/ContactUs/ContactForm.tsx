@@ -56,7 +56,7 @@ export const ContactForm = () => {
         <input type="text" name="_honey" style={{ display: "none" }} />
         <input type="hidden" name="_subject" value="Inquiry for Queens Finest Prints!" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_cc" value="christiancardenas13@gmail.com" />
+        <input type="hidden" name="_cc" value="queensfinestprints@gmail.com" />
         {contactFormInputs}
         {selectClasses}
         <div className="submit-btn-container">
