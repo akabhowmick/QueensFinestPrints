@@ -4,18 +4,27 @@ import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.png";
 import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.png";
 import gameCardHolder3 from "../assets/Sports/GameCardHolderStand/gc3.png";
 
-import cardStand1 from "../assets/Sports/CardStand/CardStand1.png";
+import cardStand2 from "../assets/Sports/CardStand/cs2.png";
+import cardStand3 from "../assets/Sports/CardStand/cs3.png";
+import cardStand4 from "../assets/Sports/CardStand/cs4.png";
+import cardStand5 from "../assets/Sports/CardStand/cs5.png";
+import cardStand6 from "../assets/Sports/CardStand/cs6.png";
 
 import hsh1 from "../assets/Sports/HorizontalSixCardStand/h1.png";
 import hsh2 from "../assets/Sports/HorizontalSixCardStand/h2.png";
+import hsh3 from "../assets/Sports/HorizontalSixCardStand/h3.png";
 
 import h1 from "../assets/Sports/ThreeCardStand/h1.png";
 import h2 from "../assets/Sports/ThreeCardStand/h2.png";
 import h3 from "../assets/Sports/ThreeCardStand/h3.png";
 
+
 import cs1 from "../assets/DeskToppers/CityStand/cs1.png";
 import cs2 from "../assets/DeskToppers/CityStand/cs2.png";
 import cs3 from "../assets/DeskToppers/CityStand/cs3.png";
+import cs4 from "../assets/DeskToppers/CityStand/cs4.png";
+import cs5 from "../assets/DeskToppers/CityStand/cs5.png";
+
 
 import k1 from "../assets/DeskToppers/Keychains/k1.png";
 import k2 from "../assets/DeskToppers/Keychains/k2.png";
@@ -70,7 +79,7 @@ const cardStand: Product = {
     "Or specify if you want your OWN LOGO displayed on the holder! *Card/Slab in picture NOT included",
     "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits for you.",
   ],
-  images: [cardStand1],
+  images: [cardStand2, cardStand3, cardStand4, cardStand5, cardStand6],
   desc: "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   quantity: 1,
   id: 1,
@@ -127,7 +136,7 @@ const horizontalSixCardStand: Product = {
     "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits you",
     "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
-  images: [hsh1, hsh2],
+  images: [hsh1, hsh2, hsh3],
   desc: "",
   quantity: 1,
   id: 3,
@@ -209,7 +218,7 @@ const cityStand: Product = {
     "*If you would like a different city (skyline and wording) message us and we'll work with you! We'll design it, confirm you like the design, and then print it for you!",
     "If you have any problems after the purchase, please contact us for customer service, which will make your purchase risk-free and you can enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
-  images: [cs1, cs2, cs3],
+  images: [cs1, cs2, cs3, cs4, cs5],
   desc: "Custom City Stand!",
   quantity: 1,
   id: 5,

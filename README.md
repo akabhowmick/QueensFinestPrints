@@ -23,13 +23,8 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 - Update company tagline 
 products 
   images
-  1
-  2
-  3
   4
   5
   6
-
-
 - bulk options and options should pop up
 - update local storage to be more specific
