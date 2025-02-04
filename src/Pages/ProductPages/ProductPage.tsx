@@ -16,7 +16,7 @@ export const ProductPage = ({
   } else if (pageContent === "Holders and Accessories") {
     productList = products.filter((product) => product.type === "Holders and Accessories");
   } else if (pageContent === "Stadiums") {
-    productList = products.filter((product) => product.type === "Stadium");
+    productList = products.filter((product) => product.type === "Stadiums");
   } else {
     productList = products;
   }

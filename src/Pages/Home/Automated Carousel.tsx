@@ -3,7 +3,7 @@ import "./Carousel.css"; // Import the CSS file
 import logo from "../../assets/Main/logo.png";
 import cs1 from "../../assets/Sports/CardStand/cs2.png";
 import da1 from "../../assets/DeskToppers/Keychains/k5.png";
-import s1 from "../../assets/s1.png";
+import s1 from "../../assets/Stadiums/s1.png";
 
 const images = [
   logo, 
@@ -18,7 +18,7 @@ export const AutomatedCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
