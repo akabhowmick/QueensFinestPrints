@@ -2,7 +2,7 @@ import styled from "styled-components";
 export const NavUnlisted = styled.ul`
   display: flex;
   align-items: center;
-  background-color: var(--grad-1);
+  background-color: #36454F;
   margin: 0 0 -5px;
   padding: 1rem;
   flex-direction: row-reverse;

@@ -1,9 +1,10 @@
 import "./Home.css";
 
 const itemNames = [
-  "Card Stands",
-  "Funko-Pop Stands",
-  "Video Game Stands",
+  "Custom Single Card Stands",
+  "Custom 3-Card Stands",
+  "Custom 6-Card Stands",
+  "Custom Replica Stadiums",
   "Box Organizers",
   "City Skylines",
 ];

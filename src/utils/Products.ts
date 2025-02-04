@@ -4,18 +4,10 @@ import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.png";
 import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.png";
 import gameCardHolder3 from "../assets/Sports/GameCardHolderStand/gc3.png";
 
-import gameDisplay1 from "../assets/Sports/GameDisplayCase/GameDisplay1.png";
-import gameDisplay2 from "../assets/Sports/GameDisplayCase/GameDisplay2.png";
-
 import cardStand1 from "../assets/Sports/CardStand/CardStand1.png";
 
 import hsh1 from "../assets/Sports/HorizontalSixCardStand/h1.png";
 import hsh2 from "../assets/Sports/HorizontalSixCardStand/h2.png";
-
-import s1 from "../assets/Sports/SixCardStand/s1.png";
-import s2 from "../assets/Sports/SixCardStand/s2.png";
-import s3 from "../assets/Sports/SixCardStand/s3.png";
-import s4 from "../assets/Sports/SixCardStand/s4.png";
 
 import h1 from "../assets/Sports/ThreeCardStand/h1.png";
 import h2 from "../assets/Sports/ThreeCardStand/h2.png";
@@ -24,9 +16,6 @@ import h3 from "../assets/Sports/ThreeCardStand/h3.png";
 import cs1 from "../assets/DeskToppers/CityStand/cs1.png";
 import cs2 from "../assets/DeskToppers/CityStand/cs2.png";
 import cs3 from "../assets/DeskToppers/CityStand/cs3.png";
-
-import f1 from "../assets/DeskToppers/FunkoPop/f1.png";
-import f2 from "../assets/DeskToppers/FunkoPop/f2.png";
 
 import k1 from "../assets/DeskToppers/Keychains/k1.png";
 import k2 from "../assets/DeskToppers/Keychains/k2.png";
@@ -41,7 +30,7 @@ const commonCustomizations: requiredCustomization[] = [
 
 // card stand
 const cardStand: Product = {
-  name: "Custom Stand for Sports Cards",
+  name: "Custom Single Card Stand",
   price: 25.0,
   bulkOptions: [
     { quantity: 2, price: 45.0 },
@@ -76,34 +65,6 @@ const cardStand: Product = {
   learnMoreLink: "/products/1",
 };
 
-// video game holder
-const gameDisplay: Product = {
-  name: "Unique Custom Game Display Case",
-  price: 27.99,
-  requiredCustomizations: commonCustomizations,
-  shortDetails: [
-    "Game Display Case consist of a backing piece and a shelf, which push fit together and attach to the wall with a single Command Strip.",
-    "We present to your attention our Video Game Storage for Wall of the highest quality. It is a unique administrative professionals day gift.",
-    "Game Display Case, Custom Logo Video Game Storage Stand, Display Stand For Video Games, Game Room Decor, Personalized Stand",
-  ],
-  details: [
-    "You can now show off all of your favorite characters from the Games. You can place the shelf anywhere that is convenient for you - on the wall, wallpaper, or tile. This is a great way to show off your Game Room collection while keeping everything organized at the same time!",
-    "You can choose the color from the drop-down, but if you want a mix, or if you want Game Display and backing plates to be different colors or whatever, just add a note to let me know.",
-    "We have the following colors:Black, White, Grey, Red, Green, Yellow, Blue, Orange, Blue-Green, Magenta, and Glow in the Dark",
-    "Please specify in the personalization section which Primary Color (Stand) and which Secondary Color (Players Name) you would like!",
-    "We will send you the design to confirm approval.",
-    "The product is 5.5 inches wide x 2 inches tall x 1-inch in depth.",
-    "Or specify if you want your OWN LOGO displayed on the holder!",
-    "*Video Game in picture NOT included",
-    "If you have any problems after the purchase, please contact us for customer service, which will make your purchase risk-free and you can enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
-  ],
-  images: [gameDisplay1, gameDisplay2],
-  desc: "",
-  quantity: 1,
-  id: 2,
-  type: "Sports",
-  learnMoreLink: "/products/2",
-};
 
 // game display
 const gameCardHolder: Product = {
@@ -135,7 +96,7 @@ const gameCardHolder: Product = {
 
 // horizontal
 const horizontalSixCardStand: Product = {
-  name: "6 Card (Horizontal) Custom Logo Card Stand",
+  name: "Custom 6-Card Stand",
   price: 85.0,
   shortDetails: [
     "We present to your attention our 6 Card (Horizontal) Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professional's day gift.",
@@ -162,40 +123,9 @@ const horizontalSixCardStand: Product = {
   learnMoreLink: "/products/4",
 };
 
-// 6 card
-const sixCardStand: Product = {
-  name: "6 Cards Custom Logo Card Stand",
-  price: 94.99,
-  requiredCustomizations: commonCustomizations,
-  shortDetails: [
-    "We present to your attention our 6 Cards Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
-    "Business Card Stand is the perfect way to display your affirmation card, business card. The perfect Card Organizer for people who just want to showcase their information cards in the workplace.",
-  ],
-  details: [
-    "Display your favorite sports or trading card with YOUR logo or your own personalized wording. Lead time for custom orders is around 7-10 days for manufacturing!",
-    "6 Cards Custom Logo Card Stand is the best gift for business owners and other professionals.",
-    "This custom stand fits 6 cards of any size!",
-    "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
-    "Lead time for custom orders is around 5-7 days for manufacturing!",
-    "Purchase multiple for discounts! Hold any sized card! PSA+BGS Slabs / One-Touch / Top Loader",
-    "Hold any sized card! PSA+BGS Slabs / One-Touch / Top Loader",
-    "Customizing is simple! Please specify in the personalization section which Primary Color (Stand). Message us with the personalization you want and we will send you the mock-up of the design to confirm your approval.",
-    "The product is 11.5in wide x 2in tall x 2.5in in depth.",
-    "Or specify if you want your OWN LOGO displayed on the holder! *Card/Slab in picture NOT included",
-    "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits you.",
-    "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
-  ],
-  images: [s1, s2, s3, s4],
-  desc: "6 Cards Custom Logo Card Stand",
-  quantity: 1,
-  id: 5,
-  type: "Sports",
-  learnMoreLink: "/products/5",
-};
-
 // 3 card
 const threeCardStand: Product = {
-  name: "3 Cards Custom Logo Card Stand",
+  name: "Custom 3-Card Stand",
   price: 49.99,
   requiredCustomizations: commonCustomizations,
   shortDetails: [
@@ -250,36 +180,6 @@ const cityStand: Product = {
   learnMoreLink: "/products/8",
 };
 
-// funko pop
-const funkoPop: Product = {
-  name: "Unique Custom Funko Pop Stands",
-  price: 23.0,
-  requiredCustomizations: commonCustomizations,
-  shortDetails: [
-    "Custom Funko Pop Stands consist of a backing piece and a shelf, which push fit together and attach to the wall with a single Command Strip (included). Funko pop not included.",
-    "You can choose the color from the drop-down, but if you want a mix, or if you want shelves and backing plates to be different colors or whatever, just add a note to let me know.",
-  ],
-  details: [
-    "We present to your attention our Funko Pop Display for Wall of the highest quality. It is a unique administrative professionals day gift.",
-    "You can now show off all of your favorite characters from movies and TV shows",
-    "You can place the shelf anywhere that is convenient for you – on the wall, wallpaper, or tile. This is a great way to show off your Funko Pop collection while keeping everything organized at the same time!",
-    "Custom Funko Pop Stands Crafted with high-quality materials, our wall mounts are strong enough to hold all of your Funko Pop. Their sleek and modern design ensures that all attention remains on your collection, while the fall-proof feature ensures your items are protected from accidents.",
-    "You can combine Funko Box mount with our Custom Character wall mount for figurines.",
-    "Please direct message if you would like a landscape-oriented stand or a larger sized stand",
-    "Display your favorite Funko Pops with your logo on it!",
-    "We have the following colors: Black, White, Grey, Red, Green, Yellow, Blue, Orange, Blue-Green, Magenta, and Glow in the Dark",
-    "Please specify in the personalization section which Primary Color (Stand) you would like!",
-    "Or specify if you want your OWN LOGO displayed on the holder!",
-    "If you have any problems after the purchase, please contact us for customer service, which will make your purchase risk-free and you can enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
-  ],
-  images: [f1, f2],
-  desc: "Custom Funko Pop Stands, Funko Pop Display Stand For Wall, Landscape Design Personalized Funko Pop Case",
-  quantity: 1,
-  id: 9,
-  type: "Desk-Topper",
-  learnMoreLink: "/products/9",
-};
-
 // keychains
 const keyChain: Product = {
   name: "Unique Custom Signature Keychain - With your Logo",
@@ -312,11 +212,8 @@ const keyChain: Product = {
 export const products: Product[] = [
   cardStand,
   gameCardHolder,
-  gameDisplay,
   horizontalSixCardStand,
-  sixCardStand,
   threeCardStand,
   keyChain,
-  funkoPop,
   cityStand,
 ];

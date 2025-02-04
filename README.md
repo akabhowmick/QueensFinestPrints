@@ -18,3 +18,13 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 - React Router Dom 
 - PayPal integration
 
+## Future changes:
+- Personal Account Dashboards
+- Update company tagline 
+
+home carousel automated 
+
+products add
+  12-Card Bleacher Display 
+  Replica Stadium 
+  etsy background animation 

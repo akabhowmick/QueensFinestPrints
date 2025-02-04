@@ -1,5 +1,7 @@
 .navbar-logo {
   width: 75px;
+  margin: 0.25rem;
+  border-radius: 50%;
 }
 .nav-elements {
   display: none;
@@ -16,12 +18,16 @@
 
 .main-navbar-ul a li {
   color: var(--logo-orange);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   position: relative;
   list-style: none;
   font-weight: 600;
   padding: 10px;
   border-radius: 5px;
+}
+
+.main-navbar-ul a li:hover {
+  font-size: 1.15rem;
 }
 
 #logo-with-title {
@@ -82,7 +88,7 @@
   .nav-elements {
     right: 0;
     top: 70px;
-    background-color: var(--grad-1);
+    background-color: #36454F;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;
