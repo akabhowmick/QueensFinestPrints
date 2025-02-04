@@ -17,6 +17,7 @@ import hsh3 from "../assets/Sports/HorizontalSixCardStand/h3.png";
 import h1 from "../assets/Sports/ThreeCardStand/h1.png";
 import h2 from "../assets/Sports/ThreeCardStand/h2.png";
 import h3 from "../assets/Sports/ThreeCardStand/h3.png";
+import h4 from "../assets/Sports/ThreeCardStand/h4.png";
 
 
 import cs1 from "../assets/DeskToppers/CityStand/cs1.png";
@@ -30,6 +31,8 @@ import k1 from "../assets/DeskToppers/Keychains/k1.png";
 import k2 from "../assets/DeskToppers/Keychains/k2.png";
 import k3 from "../assets/DeskToppers/Keychains/k3.png";
 import k4 from "../assets/DeskToppers/Keychains/k4.png";
+import k5 from "../assets/DeskToppers/Keychains/k5.png";
+import k6 from "../assets/DeskToppers/Keychains/k6.png";
 
 import bcs1 from "../assets/Sports/BleacherCardStand/b1.png";
 import bcs2 from "../assets/Sports/BleacherCardStand/b2.png";
@@ -193,7 +196,7 @@ const threeCardStand: Product = {
     "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits you.",
     "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
-  images: [h1, h2, h3],
+  images: [h1, h2, h3, h4],
   desc: "3 Cards Custom Logo Card Stand, Sports Card Display, Trading Card Display Stand, Business Card Stand, Card Organizer, Card Holder Stand",
   quantity: 1,
   id: 4,
@@ -247,7 +250,7 @@ const keyChain: Product = {
     "- You comment or approve the rendering",
     "- We go into production and ship out ASAP!",
   ],
-  images: [k1, k2, k3, k4],
+  images: [k1, k2, k3, k4, k5, k6],
   desc: "Your Personalized Keychain",
   quantity: 1,
   id: 6,
