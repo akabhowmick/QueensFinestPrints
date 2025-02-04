@@ -211,9 +211,9 @@ const keyChain: Product = {
 
 export const products: Product[] = [
   cardStand,
-  gameCardHolder,
   horizontalSixCardStand,
   threeCardStand,
+  gameCardHolder,
   keyChain,
   cityStand,
 ];

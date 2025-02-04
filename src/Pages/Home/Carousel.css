@@ -1,0 +1,14 @@
+.carousel-container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.8s ease-in-out;
+}
