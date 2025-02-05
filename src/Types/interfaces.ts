@@ -10,12 +10,18 @@ export interface requiredCustomization {
   value: string;
 }
 
+export interface customerChoice {
+  name: string;
+  value: string;
+}
+
 export interface Product {
   name: string;
   price: number;
   bulkOptions?: options[];
   options?: options[];
   requiredCustomizations?: requiredCustomization[];
+  customerChoices?: customerChoice[]
   shortDetails: string[];
   details: string[];
   images: string[];

@@ -58,6 +58,7 @@ const cardStand: Product = {
   name: "Custom Single Card Stand",
   price: 25.0,
   bulkOptions: [
+    { name: 1, price: 25.0 },
     { name: 2, price: 45.0 },
     { name: 3, price: 60.0 },
     { name: 4, price: 75.0 },
@@ -233,6 +234,15 @@ const cityStand: Product = {
 const keyChain: Product = {
   name: "Unique Custom Signature Keychain - With your Logo",
   price: 10.0,
+  bulkOptions: [
+    { name: 10, price: 10.0 },
+    { name: 25, price: 20.0 },
+    { name: 50, price: 40.0 },
+    { name: 100, price: 75.0 },
+    { name: 150, price: 125.0 },
+    { name: 200, price: 150.0 },
+    { name: 500, price: 250.0 },
+  ],
   shortDetails: [
     "Custom Keychains are small, circular accessories made from a durable piece that is commonly used to hold keys.",
     "Unique Backpack Keychain is a popular item due to its simplicity and versatility, and Aesthetic Safety Keychain can be used for personal use or given to your friends.",

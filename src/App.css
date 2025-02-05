@@ -1,5 +1,5 @@
 :root {
-  --grad-1: aliceblue;
+  --grad-1: rgb(230, 234, 238);
   --grad-2: #64ecf5;
   --grad-3: #7dcbff;
   --grad-4: #92aed4;
@@ -61,19 +61,18 @@ body {
 
 .page-header,
 .page-subheader {
-  color: var(--logo-blue);
-  font-size: 3rem;
+  font-size: 2rem;
+  margin: 2rem;
+  background-color: var(--grad-1);
+  color: var(--logo-orange);
   padding: 2rem;
 }
 
 .page-header {
-  text-decoration:  ;
+  margin-top: 1.5rem;
 }
 
-.page-subheader {
-  color: var(--dark);
-  font-size: 2rem;
-}
+
 
 @media (max-width: 37.5em) {
   #root {

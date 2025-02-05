@@ -49,7 +49,6 @@ export const ContactForm = () => {
 
   return (
     <form action={contactFormId} method="POST">
-      <h4>Get in touch!</h4>
       <div className="contact__form-container">
         <input type="text" name="_honey" style={{ display: "none" }} />
         <input type="hidden" name="_subject" value="Inquiry for Queens Finest Prints!" />

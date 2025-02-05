@@ -4,9 +4,15 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Product } from "../../Types/interfaces";
 
 export const CartItem = ({ cartItem }: { cartItem: Product }) => {
-  const { removeFromCart, changeItemQuantity, changeItemCustomization, changeItemOption } =
-    useCartContext();
-  const { images, price, name, id, quantity, requiredCustomizations, options } = cartItem;
+  const {
+    removeFromCart,
+    changeItemQuantity,
+    changeItemCustomization,
+    changeItemOption,
+    updateItemCustomization,
+  } = useCartContext();
+  const { images, price, name, id, quantity, requiredCustomizations, options, bulkOptions } =
+    cartItem;
 
   const itemCustomizations = requiredCustomizations && (
     <div className="cart-customizations">
@@ -44,7 +50,10 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
         id="product-options"
         onChange={(event) => {
           const selectedValue = event.target.value;
-          changeItemOption(id, selectedValue);
+          updateItemCustomization(id, [
+            { name: `Model Type- ${event.target.name} `, value: selectedValue },
+          ]),
+            changeItemOption(id, selectedValue);
         }}
       >
         {options.map(({ name, price }) => {
@@ -58,7 +67,31 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
     </div>
   );
 
-  console.log(itemOptions, options, cartItem)
+  // {/* Bulk Options Selection */}
+  const itemBulkOptions = bulkOptions && bulkOptions.length > 0 && (
+    <div>
+      <h4>Bulk Options</h4>
+      <select
+        name="bulk-options"
+        id="bulk-options"
+        onChange={(event) => {
+          updateItemCustomization(id, [
+            {
+              name: `Bulk Option - ${event.target.selectedOptions[0].id}`,
+              value: event.target.value,
+            },
+          ]),
+            changeItemOption(id, event.target.value);
+        }}
+      >
+        {bulkOptions.map(({ name, price }) => (
+          <option id={`Pack of ${name}`} key={name} value={price}>
+            {name} Pack - ${price}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
 
   return (
     <div>
@@ -86,6 +119,7 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
               />
             </div>
             {itemOptions}
+            {itemBulkOptions}
             <div className="product-price">Unit Price: ${price.toFixed(2)}</div>
             <div className="product-price">
               <span className="text-black">

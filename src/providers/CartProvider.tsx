@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
-import { Product } from "../Types/interfaces";
+import { customerChoice, Product } from "../Types/interfaces";
 import { products } from "../utils/Products";
 
 interface CartContextType {
@@ -11,9 +11,10 @@ interface CartContextType {
   removeFromCart: (id: number) => void;
   changeItemQuantity: (id: number, changeType: string) => void;
   changeItemCustomization: (id: number, customizationName: string, value: string) => void;
-  setCart: (newCart: Product[]) => void
+  setCart: (newCart: Product[]) => void;
   finalTotal: number;
-  changeItemOption: (id: number, value: string) => void
+  changeItemOption: (id: number, value: string) => void;
+  updateItemCustomization: (id: number, updatedChoices: customerChoice[]) => void;
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -64,7 +65,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromCart = (id: number) => {
-    const newCart = cartItems.filter((item) => item.id !== id);
+    const newCart = cartItems
+      .filter((item) => item.id !== id)
+      .map((item) => ({
+        ...item,
+        customerChoices: [], // Reset customerChoices when an item is removed
+      }));
+    console.log(newCart);
     setCart(newCart);
   };
 
@@ -113,6 +120,36 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart(updatedCartItems);
   };
 
+  const updateItemCustomization = (id: number, updatedChoices: customerChoice[]) => {
+    const updatedCartItems: Product[] = cartItems.map((item) => {
+      if (item.id === id) {
+        // Update customer choices
+        item.customerChoices = updatedChoices;
+
+        // Find the latest price based on the selected options
+        let newPrice = item.price;
+
+        updatedChoices.forEach((choice) => {
+          const selectedBulkOption = item.bulkOptions?.find(
+            (opt) => opt.name.toString() === choice.value
+          );
+          const selectedOption = item.options?.find((opt) => opt.name.toString() === choice.value);
+
+          if (selectedBulkOption) {
+            newPrice = selectedBulkOption.price;
+          } else if (selectedOption) {
+            newPrice = selectedOption.price;
+          }
+        });
+
+        item.price = newPrice;
+      }
+      return item;
+    });
+
+    setCart(updatedCartItems);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -126,6 +163,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         setCart,
         changeItemOption,
         finalTotal,
+        updateItemCustomization,
       }}
     >
       {children}
