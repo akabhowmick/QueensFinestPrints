@@ -4,10 +4,11 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Product } from "../../Types/interfaces";
 
 export const CartItem = ({ cartItem }: { cartItem: Product }) => {
-  const { removeFromCart, changeItemQuantity, changeItemCustomization } = useCartContext();
-  const { images, price, name, id, quantity, requiredCustomizations } = cartItem;
+  const { removeFromCart, changeItemQuantity, changeItemCustomization, changeItemOption } =
+    useCartContext();
+  const { images, price, name, id, quantity, requiredCustomizations, options } = cartItem;
 
-  const itemCustomizations = (
+  const itemCustomizations = requiredCustomizations && (
     <div className="cart-customizations">
       <h3>Customizations</h3>
       {requiredCustomizations &&
@@ -35,6 +36,30 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
     </div>
   );
 
+  const itemOptions = options && (
+    <div className="cart-customizations">
+      <h4>Model Type</h4>
+      <select
+        name="product-options"
+        id="product-options"
+        onChange={(event) => {
+          const selectedValue = event.target.value;
+          changeItemOption(id, selectedValue);
+        }}
+      >
+        {options.map(({ name, price }) => {
+          return (
+            <option key={name} value={price}>
+              {name}
+            </option>
+          );
+        })}
+      </select>
+    </div>
+  );
+
+  console.log(itemOptions, options, cartItem)
+
   return (
     <div>
       {quantity > 0 && (
@@ -60,6 +85,7 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
                 onClick={() => changeItemQuantity(id, "addOne")}
               />
             </div>
+            {itemOptions}
             <div className="product-price">Unit Price: ${price.toFixed(2)}</div>
             <div className="product-price">
               <span className="text-black">

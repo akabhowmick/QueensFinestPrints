@@ -13,6 +13,7 @@ interface CartContextType {
   changeItemCustomization: (id: number, customizationName: string, value: string) => void;
   setCart: (newCart: Product[]) => void
   finalTotal: number;
+  changeItemOption: (id: number, value: string) => void
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -42,13 +43,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // ! let's use this everywhere instead of two separate functions
   const setCart = (newCart: Product[]) => {
     updateCartInLocalStorage(newCart);
     setCartItems(newCart);
   };
 
-  // ! set only for an initial amount of time
   const updateCartInLocalStorage = (cartArrayItems: Product[]) => {
     localStorage.setItem("QueensFinestPrintsCart", JSON.stringify(cartArrayItems));
     if (cartArrayItems.length === 0) {
@@ -104,6 +103,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart(updatedCartItems);
   };
 
+  const changeItemOption = (id: number, value: string) => {
+    const updatedCartItems: Product[] = cartItems.map((item) => {
+      if (item.id === id) {
+        item.price = parseInt(value, 10);
+      }
+      return item;
+    });
+    setCart(updatedCartItems);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -115,6 +124,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         changeItemQuantity,
         changeItemCustomization,
         setCart,
+        changeItemOption,
         finalTotal,
       }}
     >

@@ -23,6 +23,3 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 - Update company tagline 
 - bulk options and options should pop up
 - double check emails (1/3)
-- mobile view fix many of the pages
-  - home 
-

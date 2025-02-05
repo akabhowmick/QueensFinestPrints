@@ -1,7 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface options {
-  quantity: string | number;
+  name: string | number;
   price: number;
 }
 
@@ -14,6 +14,7 @@ export interface Product {
   name: string;
   price: number;
   bulkOptions?: options[];
+  options?: options[];
   requiredCustomizations?: requiredCustomization[];
   shortDetails: string[];
   details: string[];

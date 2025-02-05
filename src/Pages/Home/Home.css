@@ -486,6 +486,8 @@
   .hero .row {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column-reverse;
+    padding-top: 3rem;
   }
 
   .scrolling-words-container {

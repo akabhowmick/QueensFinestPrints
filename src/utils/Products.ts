@@ -58,15 +58,15 @@ const cardStand: Product = {
   name: "Custom Single Card Stand",
   price: 25.0,
   bulkOptions: [
-    { quantity: 2, price: 45.0 },
-    { quantity: 3, price: 60.0 },
-    { quantity: 4, price: 75.0 },
-    { quantity: 5, price: 90.0 },
-    { quantity: 6, price: 105.0 },
-    { quantity: 8, price: 128.0 },
-    { quantity: 10, price: 150.0 },
-    { quantity: 20, price: 320.0 },
-    { quantity: 25, price: 375.0 },
+    { name: 2, price: 45.0 },
+    { name: 3, price: 60.0 },
+    { name: 4, price: 75.0 },
+    { name: 5, price: 90.0 },
+    { name: 6, price: 105.0 },
+    { name: 8, price: 128.0 },
+    { name: 10, price: 150.0 },
+    { name: 20, price: 320.0 },
+    { name: 25, price: 375.0 },
   ],
   shortDetails: [
     "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
@@ -262,9 +262,9 @@ const keyChain: Product = {
 const CLStadium: Product = {
   name: "Citi Field Stadium - New York Mets - New York City NYC Edition",
   price: 125.0,
-  bulkOptions: [
-    { quantity: "Stadium Only", price: 135.0 },
-    { quantity: "Personalizations*", price: 150.0 },
+  options: [
+    { name: "Stadium Only", price: 135.0 },
+    { name: "Personalizations*", price: 150.0 },
   ],
   shortDetails: [
     "Citi Field - New York Mets 3D Printed Replica Stadium - NYC - New York City Edition Customization!",
@@ -291,9 +291,9 @@ const CLStadium: Product = {
 const GCStadium: Product = {
   name: "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium",
   price: 135.0,
-  bulkOptions: [
-    { quantity: "Stadium Only", price: 135.0 },
-    { quantity: "Personalizations*", price: 150.0 },
+  options: [
+    { name: "Stadium Only", price: 135.0 },
+    { name: "Personalizations*", price: 150.0 },
   ],
   shortDetails: [
     "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium - Light The Beam Customization!",
