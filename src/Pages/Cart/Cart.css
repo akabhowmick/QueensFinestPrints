@@ -208,3 +208,12 @@ button:focus-visible {
 .floating-cart-btn:hover {
   transform: scale(1.1);
 }
+
+
+.cart-items select {
+  background-color: var(--nav-dark);
+  border-radius: 8px;
+  padding: 5px;
+  font-size: 1.15rem;
+  color: var(--logo-orange);
+}

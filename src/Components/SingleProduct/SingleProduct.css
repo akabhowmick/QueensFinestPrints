@@ -193,6 +193,12 @@
   background-color: var(--logo-blue);
 }
 
+.full-details {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  transition: max-height 0.3s ease-in-out;
+}
+
 @media only screen and (max-width: 37.5em) {
   .product-banner {
     margin: 0.5rem;
@@ -200,7 +206,7 @@
     font-size: 1rem;
   }
 
-  .product-banner .product-info-header h3{
+  .product-banner .product-info-header h3 {
     font-size: 1.25rem;
   }
 
@@ -210,6 +216,20 @@
 
   .product-banner .product-info-price h4 {
     font-size: 1.15rem;
+  }
+  .toggle-details-btn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    text-decoration: underline;
+    padding: 0;
+  }
+  .toggle-details-btn:focus {
+    outline: none;
   }
 }
 
@@ -222,5 +242,20 @@
   .product-banner .image-container,
   .product-banner .product-info-container {
     width: 100%;
+  }
+
+  .toggle-details-btn {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    text-decoration: underline;
+    padding: 0;
+  }
+  .toggle-details-btn:focus {
+    outline: none;
   }
 }

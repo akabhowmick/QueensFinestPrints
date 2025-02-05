@@ -28,4 +28,3 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 
 
 - home page ugly 
-- for the mobile device and banner have a simple scroll down to reveal the details 

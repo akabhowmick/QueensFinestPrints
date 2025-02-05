@@ -12,7 +12,6 @@ export const HeroSection = () => {
             <h2>You dream it</h2>
             <h1>We 3D Print It! </h1>
             <ItemCarousel />
-            <button className="btn btn-primary">All Products</button>
           </div>
           <AutomatedCarousel />
         </div>

@@ -7,6 +7,7 @@
   --logo-blue: #0b3b9c;
   --logo-orange: #f5791d;
 
+  --nav-dark: #36454F;
   --primary: #6dccb0;
   --secondary: #7a7b78;
   --dark: #323234;
@@ -85,10 +86,14 @@ body {
 
   .page-header {
     font-size: 2rem;
-    padding: 2rem 0 1rem;
+    padding: 2rem 0.5rem;
   }
   .page-subheader {
     font-size: 1.5rem;
     padding: 1rem;
   }
+}
+
+button:focus{
+  outline: none;
 }
