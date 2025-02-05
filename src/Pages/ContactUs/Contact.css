@@ -26,7 +26,7 @@
 .contact-links {
   background-color: var(--grad-1);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   padding: 2rem;
 }
@@ -46,8 +46,8 @@
 
 .contact-links .icon:hover {
   background-color: var(--grad-1);
-  color: var(--logo-blue);
-  border: 2px solid var(--logo-blue);
+  color: var(--logo-orange);
+  border: 2px solid var(--logo-orange);
 }
 
 .submit-btn-container {
@@ -62,7 +62,6 @@
 
 #contact-submit-btn:hover {
   background-color: var(--logo-orange);
-  text-decoration:  ;
 }
 
 .contact {

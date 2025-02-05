@@ -36,7 +36,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   }, [cartItems]);
 
   useEffect(() => {
-    const maybeCart = localStorage.getItem("cart");
+    const maybeCart = localStorage.getItem("QueensFinestPrintsCart");
     if (maybeCart) {
       setCartItems(JSON.parse(maybeCart));
     }
@@ -50,9 +50,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   // ! set only for an initial amount of time
   const updateCartInLocalStorage = (cartArrayItems: Product[]) => {
-    localStorage.setItem("cart", JSON.stringify(cartArrayItems));
+    localStorage.setItem("QueensFinestPrintsCart", JSON.stringify(cartArrayItems));
     if (cartArrayItems.length === 0) {
-      localStorage.removeItem("cart");
+      localStorage.removeItem("QueensFinestPrintsCart");
     }
   };
 

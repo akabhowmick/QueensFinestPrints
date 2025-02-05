@@ -21,10 +21,5 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 ## Future changes:
 - Personal Account Dashboards
 - Update company tagline 
-products 
-  images
-  4
-  5
-  6
 - bulk options and options should pop up
-- update local storage to be more specific
+- double check emails
