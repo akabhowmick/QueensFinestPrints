@@ -175,7 +175,12 @@ button:focus-visible {
     max-width: 280px;
   }
   .cart-display-empty-products .product-card {
-    margin: 0;
+    max-width: 280px;
+    margin: 0.5rem;
+    padding: 0;
+  }
+  .empty-cart-container{
+    text-align: center;
     padding: 0;
   }
 }

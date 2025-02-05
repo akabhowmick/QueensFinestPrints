@@ -124,6 +124,16 @@
   .menu li a {
     border-bottom: 1px solid var(--logo-orange);
   }
+
+  .footer h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer .menu{
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .footer-left #social-links {
     display: flex;
     flex-wrap: wrap;

@@ -58,7 +58,6 @@ export const UploadImageForm = () => {
           name="_subject"
           value="Customization for Queens Finest Prints order!"
         />
-        <input type="hidden" name="_cc" value="queensfinestprints@gmail.com" />
         <input type="hidden" name="_template" value="table" />
         {contactFormInputs}
         {uploadAndDisplayImage}

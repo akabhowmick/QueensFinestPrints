@@ -490,7 +490,7 @@
 
   .scrolling-words-container {
     text-align: center;
-    font-size: 1.5rem;
+    width: 100%;
   }
 
   .button_right {
@@ -515,7 +515,7 @@
     padding: 1.5rem;
   }
   .scrolling-words-box ul li {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .slide-ctrl-container {

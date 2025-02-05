@@ -194,6 +194,23 @@
 }
 
 @media only screen and (max-width: 37.5em) {
+  .product-banner {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .product-banner .product-info-header h3{
+    font-size: 1.25rem;
+  }
+
+  .product-banner .product-info-header .discount-container {
+    display: none;
+  }
+
+  .product-banner .product-info-price h4 {
+    font-size: 1.15rem;
+  }
 }
 
 @media only screen and (max-width: 56.25em) {

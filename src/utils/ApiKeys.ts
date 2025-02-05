@@ -4,8 +4,8 @@ export const paypalClientId =
 
 // Email form
 const companyEmail = "queensfinestprints@gmail.com";
-export const contactFormId = `https://formsubmit.co/${companyEmail}`;
-export const imageUploadFormId = `https://formsubmit.co/${companyEmail}`;
+export const contactFormId = `https://formsubmit.co/${companyEmail}`; // checked 02/04/25 
+export const imageUploadFormId = `https://formsubmit.co/${companyEmail}`; // checked 02/04/25 
 export const orderReviewFormId = `https://formsubmit.co/${companyEmail}`;
 
 // Website Links
