@@ -71,7 +71,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         ...item,
         customerChoices: [], // Reset customerChoices when an item is removed
       }));
-    console.log(newCart);
     setCart(newCart);
   };
 
