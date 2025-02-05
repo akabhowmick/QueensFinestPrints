@@ -5,6 +5,7 @@ const itemNames = [
   "Custom 3-Card Stands",
   "Custom 6-Card Stands",
   "Custom Replica Stadiums",
+  "Custom Bleacher Stands",
   "Box Organizers",
   "City Skylines",
 ];

@@ -27,15 +27,13 @@ export const ContactForm = () => {
   });
 
   const productOptions = [
-    "Funko Pop Stand",
-    "City Skyline",
-    "Key Chains",
-    "Card Stand",
-    "Game Card Holder",
-    "Game Display Holder",
-    "Horizontal Six Card Stand",
-    "Six Card Stand",
-    "Three Card Stand",
+    "Custom Single Card Stands",
+    "Custom 3-Card Stands",
+    "Custom 6-Card Stands",
+    "Custom Replica Stadiums",
+    "Custom Bleacher Stands",
+    "Box Organizers",
+    "City Skylines",
   ];
 
   const selectClasses = (
