@@ -25,6 +25,3 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 
 - double check emails (1/3)
 - bulk and options saved into the item => incorporate into the email 
-
-
-- home page ugly 

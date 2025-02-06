@@ -47,6 +47,11 @@ import cls3 from "../assets/Stadiums/CL/s3.png";
 import cls4 from "../assets/Stadiums/CL/s2.png";
 import cls5 from "../assets/Stadiums/CL/s3.png";
 
+import video from "../assets/Main/main.mp4"
+import poster from "../assets/Main/poster.jpeg"
+
+export const videoPath = video;
+export const posterPath = poster;
 const commonCustomizations: requiredCustomization[] = [
   { name: "Color of Holder", value: "" },
   { name: "Color of Letterings", value: "" },

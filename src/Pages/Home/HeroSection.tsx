@@ -1,3 +1,4 @@
+import { posterPath, videoPath } from "../../utils/Products";
 import "./Home.css";
 import { ItemCarousel } from "./ItemCarousel";
 
@@ -10,9 +11,9 @@ export const HeroSection = () => {
         muted 
         loop 
         id="hero-video" 
-        poster="src/assets/Main/poster.jpeg" // fallback image
+        poster={posterPath} // fallback image
       >
-        <source src="src/assets/Main/main.mp4" type="video/mp4" />
+        <source src={videoPath} type="video/mp4" />
       </video>
 
       <div 
