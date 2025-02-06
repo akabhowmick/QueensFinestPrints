@@ -21,7 +21,8 @@ This is an e-commerce website specializing in 3D custom designs, with a focus on
 ## Future changes:
 - Personal Account Dashboards
 - Update company tagline 
-- Update so that in cart the bulk options and item options reflect the selected options on refresh
 
-- double check emails (1/3)
-- bulk and options saved into the item => incorporate into the email 
+- Update so that in cart the bulk options and item options reflect the selected options on refresh
+- paypal check
+- navbar high z-index
+- after order => make the whole cart null

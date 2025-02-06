@@ -5,23 +5,24 @@ import { ItemCarousel } from "./ItemCarousel";
 export const HeroSection = () => {
   return (
     <div className="hero">
-      <video 
-        className="hero-video" 
-        autoPlay 
-        muted 
-        loop 
-        id="hero-video" 
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        id="hero-video"
+        playsInline
         poster={posterPath} // fallback image
       >
         <source src={videoPath} type="video/mp4" />
       </video>
 
-      <div 
-        className="container" 
+      <div
+        className="container"
         style={{
-          backgroundImage: 'url(src/assets/Main/background.jpg)', // background image
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundImage: "url(src/assets/Main/background.jpg)", // background image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="row">

@@ -51,6 +51,12 @@ export default function Review() {
         result += `${customization.name}: ${customization.value}\n`;
       });
     }
+    if (product.customerChoices) {
+      result += "Customer Choices:\n";
+      product.customerChoices.forEach((choice) => {
+        result += `${choice.name}: ${choice.value}\n`;
+      });
+    }
     return result;
   };
 
@@ -104,11 +110,12 @@ export default function Review() {
         <form action={orderReviewFormId} method="POST">
           <input type="hidden" name="_redirect" value={uploadImagePage} />
           <input type="hidden" name="_cc" value="queensfinestprints@gmail.com" />
+          <input type="hidden" name="_cc" value={user.email} />
           <input type="text" name="_honey" style={{ display: "none" }} />
           <input
             type="hidden"
             name="_subject"
-            value="Order Summary for Queens Finest Prints order!"
+            value={`Order Summary for Queens Finest Prints Order N. - ${order}!`}
           />
           {FormSubmitIoInputs}
           {cartItems.map((product) => {
@@ -116,7 +123,7 @@ export default function Review() {
               <input
                 key={product.id}
                 type="hidden"
-                name="Product-Ordered"
+                name={`${product.name} - Order Specifics`}
                 value={productToString(product)}
               />
             );
