@@ -10,4 +10,5 @@ export const NavUnlisted = styled.ul`
   .active {
     border-bottom: 2px solid black;
   }
+  z-index: 100000;
 `;

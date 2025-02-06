@@ -26,6 +26,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const shippingPrice = 5;
   const taxRate = 0.0875;
 
+  const CLEAR_CART_TIMEOUT = 20 * 60 * 1000; // 20 minutes in milliseconds
+
   useEffect(() => {
     let cartTotal = 0;
     cartItems.forEach((item) => {
@@ -42,7 +44,45 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     if (maybeCart) {
       setCartItems(JSON.parse(maybeCart));
     }
+
+    // Check for the last update timestamp
+    const lastUpdated = localStorage.getItem("QueensFinestPrintsCartLastUpdated");
+    if (lastUpdated) {
+      const lastUpdatedTime = Number(lastUpdated);
+      const currentTime = Date.now();
+      const timeDiff = currentTime - lastUpdatedTime;
+
+      // If more than 20 minutes have passed since the last update, clear the cart
+      if (timeDiff > CLEAR_CART_TIMEOUT) {
+        clearCart();
+      }
+    }
+
+    // Optionally set an interval to check every minute
+    const interval = setInterval(() => {
+      const lastUpdated = localStorage.getItem("QueensFinestPrintsCartLastUpdated");
+      if (lastUpdated) {
+        const lastUpdatedTime = Number(lastUpdated);
+        const currentTime = Date.now();
+        const timeDiff = currentTime - lastUpdatedTime;
+
+        if (timeDiff > CLEAR_CART_TIMEOUT) {
+          clearCart();
+        }
+      }
+    }, 60 * 1000); // Every minute
+
+    return () => {
+      clearInterval(interval);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("QueensFinestPrintsCart");
+    localStorage.removeItem("QueensFinestPrintsCartLastUpdated");
+  };
 
   const setCart = (newCart: Product[]) => {
     updateCartInLocalStorage(newCart);
@@ -51,8 +91,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const updateCartInLocalStorage = (cartArrayItems: Product[]) => {
     localStorage.setItem("QueensFinestPrintsCart", JSON.stringify(cartArrayItems));
+    localStorage.setItem("QueensFinestPrintsCartLastUpdated", Date.now().toString());
+
     if (cartArrayItems.length === 0) {
       localStorage.removeItem("QueensFinestPrintsCart");
+      localStorage.removeItem("QueensFinestPrintsCartLastUpdated");
     }
   };
 
@@ -122,10 +165,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const updateItemCustomization = (id: number, updatedChoices: customerChoice[]) => {
     const updatedCartItems: Product[] = cartItems.map((item) => {
       if (item.id === id) {
-        // Update customer choices
         item.customerChoices = updatedChoices;
 
-        // Find the latest price based on the selected options
         let newPrice = item.price;
 
         updatedChoices.forEach((choice) => {

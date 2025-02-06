@@ -17,8 +17,7 @@ export default function Review() {
 
   const infoForSeller = [
     { name: "_template_id", value: "table" },
-    { name: "Name", value: user.firstName + " " + user.lastName },
-    { name: "_subject", value: "Complete Order for Queens Finest Prints!" },
+    { name: "_subject", value: `Order Summary for Queens Finest Prints Order N. - ${order}!` },
     {
       name: "Email-Address",
       value: user.email,
@@ -36,6 +35,7 @@ export default function Review() {
       name: "Total-Cost",
       value: "$" + finalTotal.toFixed(2),
     },
+    { name: "_next", value: uploadImagePage },
   ];
 
   const FormSubmitIoInputs = infoForSeller.map(({ name, value }) => {
@@ -108,15 +108,8 @@ export default function Review() {
       </Grid>
       <Grid item xs={12}>
         <form action={orderReviewFormId} method="POST">
-          <input type="hidden" name="_redirect" value={uploadImagePage} />
-          <input type="hidden" name="_cc" value="queensfinestprints@gmail.com" />
           <input type="hidden" name="_cc" value={user.email} />
           <input type="text" name="_honey" style={{ display: "none" }} />
-          <input
-            type="hidden"
-            name="_subject"
-            value={`Order Summary for Queens Finest Prints Order N. - ${order}!`}
-          />
           {FormSubmitIoInputs}
           {cartItems.map((product) => {
             return (
