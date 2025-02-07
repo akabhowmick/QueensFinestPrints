@@ -15,6 +15,11 @@ export default function Review() {
   const { user, order } = useUserContext();
   const addresses = [user.addressLine1, user.city, user.state, user.country, user.zipCode];
 
+  // const clearCart = () => {
+  //   //make this a constant
+  //   // and use it in the clearCart function
+  // }
+
   const infoForSeller = [
     { name: "_template_id", value: "table" },
     { name: "_subject", value: `Order Summary for Queens Finest Prints Order N. - ${order}!` },

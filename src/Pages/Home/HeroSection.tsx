@@ -27,8 +27,7 @@ export const HeroSection = () => {
       >
         <div className="row">
           <div className="col-md-6 order-2 hero__lead">
-            <h2>You dream it</h2>
-            <h1>We 3D Print It!</h1>
+            <h1>Custom 3D Prints</h1>
             <ItemCarousel />
           </div>
         </div>

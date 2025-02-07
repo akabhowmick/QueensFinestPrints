@@ -108,12 +108,17 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromCart = (id: number) => {
-    const newCart = cartItems
-      .filter((item) => item.id !== id)
-      .map((item) => ({
-        ...item,
-        customerChoices: [], // Reset customerChoices when an item is removed
-      }));
+    console.log(cartItems.find((product) => product.id === id));
+    const updatedCartItems = cartItems.map((item) => {
+      if (item.id === id && "customerChoices" in item) {
+        console.log("deleting: ", item.customerChoices);
+        delete item.customerChoices;
+      }
+      return item;
+    });
+
+    const newCart = updatedCartItems.filter((item) => item.id !== id);
+
     setCart(newCart);
   };
 
