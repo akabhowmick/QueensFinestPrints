@@ -15,6 +15,7 @@ interface CartContextType {
   finalTotal: number;
   changeItemOption: (id: number, value: string) => void;
   updateItemCustomization: (id: number, updatedChoices: customerChoice[]) => void;
+  clearCart: () => void;
 }
 
 const CartContext = createContext({} as CartContextType);
@@ -208,6 +209,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         changeItemOption,
         finalTotal,
         updateItemCustomization,
+        clearCart
       }}
     >
       {children}
