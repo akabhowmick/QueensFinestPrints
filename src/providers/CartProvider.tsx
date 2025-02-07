@@ -101,24 +101,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (id: number) => {
     const product = products.find((product) => product.id === id);
-    if (!cartItems.find((product) => product.id === id) && product) {
-      const newCart = [...cartItems, product];
+    const newProduct = JSON.parse(JSON.stringify(product));
+    if (!cartItems.find((product) => product.id === id) && newProduct) {
+      const newCart = [...cartItems, newProduct];
       setCart(newCart);
     }
   };
 
   const removeFromCart = (id: number) => {
-    console.log(cartItems.find((product) => product.id === id));
+    const originalProduct = products.find((product) => product.id === id);
     const updatedCartItems = cartItems.map((item) => {
       if (item.id === id && "customerChoices" in item) {
-        console.log("deleting: ", item.customerChoices);
         delete item.customerChoices;
+        item.price = originalProduct?.price || item.price;
       }
       return item;
     });
-
     const newCart = updatedCartItems.filter((item) => item.id !== id);
-
     setCart(newCart);
   };
 
