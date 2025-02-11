@@ -4,6 +4,7 @@ import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.png";
 import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.png";
 import gameCardHolder3 from "../assets/Sports/GameCardHolderStand/gc3.png";
 
+import cardStand1 from "../assets/Sports/CardStand/cs1.png";
 import cardStand2 from "../assets/Sports/CardStand/cs2.png";
 import cardStand3 from "../assets/Sports/CardStand/cs3.png";
 import cardStand4 from "../assets/Sports/CardStand/cs4.png";
@@ -88,7 +89,7 @@ const cardStand: Product = {
     "Or specify if you want your OWN LOGO displayed on the holder! *Card/Slab in picture NOT included",
     "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits for you.",
   ],
-  images: [cardStand2, cardStand3, cardStand4, cardStand5, cardStand6],
+  images: [cardStand1, cardStand2, cardStand3, cardStand4, cardStand5, cardStand6],
   desc: "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   quantity: 1,
   id: 1,
