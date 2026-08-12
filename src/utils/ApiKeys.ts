@@ -1,13 +1,14 @@
 // Paypal information
-export const paypalClientId =
-  "AXqOomrS73dZYPvV-fElIHCQITsnzIRe0DNmMZKhmIC6nod2TPfhJV9HGnD4iE4O0M4UL3_jAJzgL8gs";
+export const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID;
 
 // Email form
-const companyEmail = "queensfinestprints@gmail.com";
-export const contactFormId = `https://formsubmit.co/${companyEmail}`; 
-export const imageUploadFormId = `https://formsubmit.co/${companyEmail}`; 
-export const orderReviewFormId = `https://formsubmit.co/${companyEmail}`;
+// FormSubmit alias id (obtained by activating https://formsubmit.co/<email> once and
+// swapping in the random-string alias it emails back) so the plain address never ships in the bundle.
+const formSubmitId = import.meta.env.VITE_FORMSUBMIT_ID;
+export const contactFormId = `https://formsubmit.co/${formSubmitId}`;
+export const imageUploadFormId = `https://formsubmit.co/${formSubmitId}`;
+export const orderReviewFormId = `https://formsubmit.co/${formSubmitId}`;
 
 // Website Links
-export const uploadImagePage = "http://www.queensfinestprints.com/upload-image";
-export const thankYouPage = "http://www.queensfinestprints.com/thanks";
+export const uploadImagePage = "https://www.queensfinestprints.com/upload-image";
+export const thankYouPage = "https://www.queensfinestprints.com/thanks";

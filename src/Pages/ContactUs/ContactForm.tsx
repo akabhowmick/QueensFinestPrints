@@ -41,7 +41,11 @@ export const ContactForm = () => {
       <label htmlFor="design_of_interest">Class Of Interest</label>
       <select className="contact-form-input" id="design_of_interest" name="design_of_interest">
         {productOptions.map((className) => {
-          return <option key={className} value={className} label={className}></option>;
+          return (
+            <option key={className} value={className}>
+              {className}
+            </option>
+          );
         })}
       </select>
     </div>

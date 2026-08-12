@@ -23,7 +23,7 @@ export const ProductPage = ({
 
   return (
     <div className="product-page">
-      <h2 className="page-header">{pageHeader}</h2>
+      <h1 className="page-header">{pageHeader}</h1>
       <ProductGrid productList={productList} />
     </div>
   );

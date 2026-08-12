@@ -1,5 +1,5 @@
 import styled from "styled-components";
-export const NavUnlisted = styled.ul`
+export const NavUnlisted = styled.div`
   display: flex;
   align-items: center;
   background-color: #36454F;
@@ -8,7 +8,7 @@ export const NavUnlisted = styled.ul`
   flex-direction: row-reverse;
   justify-content: space-between;
   .active {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid var(--logo-orange);
   }
   z-index: 100000;
 `;

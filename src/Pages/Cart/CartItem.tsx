@@ -98,7 +98,7 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
       {quantity > 0 && (
         <div className="cart-single-item">
           <div className="cart-img-container">
-            <img className="cart-img" src={images[0]} alt="cart-image" />
+            <img className="cart-img" src={images[0]} alt={name} />
             <button onClick={() => removeFromCart(id)}>Remove</button>
           </div>
           <div className="cart-text-details-container">

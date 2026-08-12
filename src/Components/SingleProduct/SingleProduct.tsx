@@ -99,11 +99,11 @@ export const SingleProduct = ({
   const productImage =
     displayType !== "card" ? (
       <div className="image-container product-image">
-        <ImageCarousel images={images} />
+        <ImageCarousel images={images} name={name} />
       </div>
     ) : (
       <a href={learnMoreLink} target="_top">
-        <img src={images[0]} className="product-image" alt={`product image for ${name}`} />
+        <img src={images[0]} className="product-image" alt={name} />
       </a>
     );
 
@@ -114,19 +114,23 @@ export const SingleProduct = ({
 
         <div className="product-info-container">
           <div className="product-info-header">
-            <h3 className="product-name">{name}</h3>
+            {displayType !== "card" ? (
+              <h1 className="product-name">{name}</h1>
+            ) : (
+              <h2 className="product-name">{name}</h2>
+            )}
             <div className="product-info-price">
-              <h4 className="discount-price">Limited Time Price: ${price}</h4>
+              <p className="discount-price">Limited Time Price: ${price}</p>
               <div className="discount-container">
-                <h5 className="original-price">Original Price: ${(price * 1.3).toFixed(2)}</h5>
-                <h4>30% OFF</h4>
+                <span className="original-price">Original Price: ${(price * 1.3).toFixed(2)}</span>
+                <span className="discount-badge">30% OFF</span>
               </div>
             </div>
           </div>
 
           {displayType !== "card" && (
             <div className="product-info-details product-description">
-              <h4>Item Details:</h4>
+              <h2>Item Details:</h2>
 
               {/* Show short details */}
               {detailsToDisplay}

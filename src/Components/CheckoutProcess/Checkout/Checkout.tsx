@@ -42,7 +42,6 @@ export default function Checkout() {
       <CssBaseline />
 
       <Container
-        component="main"
         maxWidth="sm"
         sx={{ mb: 4, paddingTop: "5rem" }}
         id="checkout-container"

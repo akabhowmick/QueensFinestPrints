@@ -153,10 +153,6 @@ button:focus-visible {
   color: black;
 }
 
-.input-wrap input:focus-visible{
-  outline: none;
-}
-
 @media (max-width: 37.5em) {
   .cart-page-container {
     justify-content: center;
@@ -193,7 +189,7 @@ button:focus-visible {
   width: 100px;
   height: 30px;
   background-color: #ff6600;
-  color: white;
+  color: #000000;
   display: flex;
   align-items: center;
   justify-content: center;

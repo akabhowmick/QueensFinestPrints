@@ -6,6 +6,9 @@
   --orange-background: #f59b1b;
   --logo-blue: #0b3b9c;
   --logo-orange: #f5791d;
+  /* Darker orange for text/icons on light backgrounds — the brand orange above
+     is ~2.8:1 on white, which fails WCAG AA (4.5:1) for text. */
+  --logo-orange-dark: #a34c0a;
 
   --nav-dark: #36454F;
   --primary: #6dccb0;
@@ -65,7 +68,7 @@ body {
   font-size: 2rem;
   margin: 2rem;
   background-color: var(--grad-1);
-  color: var(--logo-orange);
+  color: var(--logo-blue);
   padding: 2rem;
 }
 
@@ -94,6 +97,3 @@ body {
   }
 }
 
-button:focus{
-  outline: none;
-}

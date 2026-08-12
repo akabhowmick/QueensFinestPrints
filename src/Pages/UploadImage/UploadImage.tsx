@@ -9,7 +9,12 @@ export const UploadImageForm = () => {
   const uploadAndDisplayImage = (
     <div className="contact-form-div">
       <label htmlFor="Image-for-Customization">Image for Customization</label>
-      <input type="file" name="Image-for-Customization" accept="image/png, image/jpeg" />
+      <input
+        type="file"
+        id="Image-for-Customization"
+        name="Image-for-Customization"
+        accept="image/png, image/jpeg"
+      />
     </div>
   );
 
@@ -51,6 +56,7 @@ export const UploadImageForm = () => {
       encType="multipart/form-data"
     >
       <div className="contact__form-container">
+        <h1 className="page-header">Upload Your Image</h1>
         <input type="hidden" name="_next" value={thankYouPage} />
         <input type="text" name="_honey" style={{ display: "none" }} />
         <input

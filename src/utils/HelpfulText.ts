@@ -22,8 +22,8 @@ const photoGuidelines = [
 
 const howToUploadPhoto = [
   "1. You can upload it through our Google form https://forms.gle/YVNVY2w3wCk7m8gD6",
-  "2. You can also send us the photos by email (christiancardenas13@gmail.)",
-  "3. Use the upload to the following link: https://queensfinestprints.com/upload-image",
+  "2. Use the upload page at https://queensfinestprints.com/upload-image",
+  "3. Or reach out through our Contact Us page and we'll help you get your photo to us.",
 ];
 
 const returnPolicy = [

@@ -2,6 +2,7 @@
 import { useState, useEffect, createContext, useContext, ReactNode } from "react";
 import { customerChoice, Product } from "../Types/interfaces";
 import { products } from "../utils/Products";
+import { sanitizeStoredCart } from "../utils/cartStorage";
 
 interface CartContextType {
   cartItems: Product[];
@@ -43,7 +44,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const maybeCart = localStorage.getItem("QueensFinestPrintsCart");
     if (maybeCart) {
-      setCartItems(JSON.parse(maybeCart));
+      const sanitized = sanitizeStoredCart(maybeCart);
+      if (sanitized.length > 0) {
+        setCartItems(sanitized);
+      } else {
+        localStorage.removeItem("QueensFinestPrintsCart");
+        localStorage.removeItem("QueensFinestPrintsCartLastUpdated");
+      }
     }
 
     // Check for the last update timestamp

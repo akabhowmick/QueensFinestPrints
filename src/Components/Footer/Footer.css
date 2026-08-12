@@ -38,6 +38,11 @@
   margin-bottom: 20px;
 }
 
+.footer .about a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .footer #social-links {
   display: flex;
   gap: 10px;
@@ -58,7 +63,7 @@
   color: var(--logo-orange);
 }
 
-.footer h3 {
+.footer .footer-logo-title {
   color: #ffffff;
   font-size: 36px;
   font-weight: normal;
@@ -125,7 +130,7 @@
     border-bottom: 1px solid var(--logo-orange);
   }
 
-  .footer h3 {
+  .footer .footer-logo-title {
     font-size: 1.5rem;
   }
 

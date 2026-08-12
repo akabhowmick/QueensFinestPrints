@@ -25,6 +25,9 @@ const ButtonWrapper = ({
         currency: currency,
       },
     });
+    // dispatch is stable; options intentionally excluded — it's re-derived by this
+    // same dispatch, so including it would re-trigger the effect in a loop.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency, showSpinner]);
 
   return (

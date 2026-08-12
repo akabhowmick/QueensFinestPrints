@@ -45,7 +45,7 @@ export const SideCart = () => {
         {quantity > 0 && (
           <div className="side-cart-single-item">
             <div className="cart-img-container">
-              <img className="cart-img" src={images[0]} alt="cart-image" />
+              <img className="cart-img" src={images[0]} alt={name} />
               <button onClick={() => removeFromCart(id)}>Remove</button>
             </div>
             <div className="cart-text-details-container">
@@ -88,7 +88,7 @@ export const SideCart = () => {
           Cart ({cartItems.length})
         </div>
         {cartItems?.length === 0 ? (
-          <h3 style={{ color: "white" }}>Your cart is empty!</h3>
+          <p style={{ color: "white" }}>Your cart is empty!</p>
         ) : (
           <div className="side-cart-items">{sideCartItems}</div>
         )}
