@@ -10,7 +10,8 @@ import { useCartContext } from "../../providers/CartProvider";
 import "./Cart.css";
 
 export const SideCart = () => {
-  const { cartItems, removeFromCart, changeItemQuantity, total, finalTotal } = useCartContext();
+  const { cartItems, removeFromCart, changeItemQuantity, total, tax, shipping, finalTotal } =
+    useCartContext();
   const [cartMode, setCartMode] = useState(false);
   const toggleCart = () => {
     setCartMode(!cartMode);
@@ -18,8 +19,8 @@ export const SideCart = () => {
 
   const cartTotalDetails = [
     { name: "Cart Subtotal: $", value: parseFloat(total.toFixed(2)) },
-    { name: "Shipping Cost: $", value: 5.0 },
-    { name: "Tax: $", value: parseFloat((total * 0.0875).toFixed(2)) },
+    { name: "Shipping Cost: $", value: parseFloat(shipping.toFixed(2)) },
+    { name: "Tax: $", value: parseFloat(tax.toFixed(2)) },
     { name: "Total Cost: $", value: finalTotal },
   ];
 

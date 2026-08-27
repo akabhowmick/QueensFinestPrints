@@ -1,4 +1,5 @@
 import { Product, requiredCustomization } from "../Types/interfaces";
+import { productCatalog } from "../../shared/pricing";
 
 import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.png";
 import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.png";
@@ -53,6 +54,39 @@ import poster from "../assets/Main/poster.jpeg"
 
 export const videoPath = video;
 export const posterPath = poster;
+
+// Prices come from the shared pricing catalog (the same source the Netlify
+// Functions use) so there is exactly one place order money is defined.
+const catalogEntryFor = (productId: string) => {
+  const entry = productCatalog.find((product) => product.productId === productId);
+  if (!entry) throw new Error(`Missing shared catalog entry for product ${productId}`);
+  return entry;
+};
+
+const basePriceFor = (productId: string) => catalogEntryFor(productId).variants[0].unitPriceCents / 100;
+
+const optionsFor = (productId: string) => {
+  const entry = catalogEntryFor(productId);
+  if (entry.variantKind !== "option") return undefined;
+  return entry.variants
+    .filter((variant) => variant.skuId !== `${productId}-default`)
+    .map((variant) => ({
+      name: variant.label as string,
+      price: variant.unitPriceCents / 100,
+      skuId: variant.skuId,
+    }));
+};
+
+const bulkOptionsFor = (productId: string) => {
+  const entry = catalogEntryFor(productId);
+  if (entry.variantKind !== "bulk") return undefined;
+  return entry.variants.map((variant) => ({
+    name: variant.label as number,
+    price: variant.unitPriceCents / 100,
+    skuId: variant.skuId,
+  }));
+};
+
 const commonCustomizations: requiredCustomization[] = [
   { name: "Color of Holder", value: "" },
   { name: "Color of Letterings", value: "" },
@@ -62,19 +96,8 @@ const commonCustomizations: requiredCustomization[] = [
 // card stand
 const cardStand: Product = {
   name: "Custom Single Card Stand",
-  price: 25.0,
-  bulkOptions: [
-    { name: 1, price: 25.0 },
-    { name: 2, price: 45.0 },
-    { name: 3, price: 60.0 },
-    { name: 4, price: 75.0 },
-    { name: 5, price: 90.0 },
-    { name: 6, price: 105.0 },
-    { name: 8, price: 128.0 },
-    { name: 10, price: 150.0 },
-    { name: 20, price: 320.0 },
-    { name: 25, price: 375.0 },
-  ],
+  price: basePriceFor("1"),
+  bulkOptions: bulkOptionsFor("1"),
   shortDetails: [
     "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   ],
@@ -100,7 +123,7 @@ const cardStand: Product = {
 // game display
 const gameCardHolder: Product = {
   name: "Game Display Card Holder Stand",
-  price: 15.0,
+  price: basePriceFor("2"),
   shortDetails: [
     "We present to your attention our Game Display Card Holder Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
     "Card Storage Stand is the perfect way to display your affirmation card, business card. The perfect Card Organizer for people who just want to showcase their information cards in the workplace.",
@@ -128,7 +151,7 @@ const gameCardHolder: Product = {
 // horizontal
 const horizontalSixCardStand: Product = {
   name: "Custom 6-Card Stand",
-  price: 85.0,
+  price: basePriceFor("3"),
   shortDetails: [
     "We present to your attention our 6 Card (Horizontal) Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professional's day gift.",
     "Sports card displays are the perfect way to display your sports cards along with your brand!",
@@ -157,7 +180,7 @@ const horizontalSixCardStand: Product = {
 // horizontal
 const BleacherCardStand: Product = {
   name: "3-Tiered Bleachers - Card Display",
-  price: 100.0,
+  price: basePriceFor("9"),
   shortDetails: [
     "Display your favorite sports or trading cards with YOUR logo or your own personalized wording. This design holds up to 21 cards at once!",
     "Lead time for custom orders are around 7-10 days for manufacturing!",
@@ -182,7 +205,7 @@ const BleacherCardStand: Product = {
 // 3 card
 const threeCardStand: Product = {
   name: "Custom 3-Card Stand",
-  price: 49.99,
+  price: basePriceFor("4"),
   requiredCustomizations: commonCustomizations,
   shortDetails: [
     "We present to your attention our 3 Cards Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
@@ -214,7 +237,7 @@ const threeCardStand: Product = {
 // city stand
 const cityStand: Product = {
   name: "Unique Custom New York City Skyline",
-  price: 10.0,
+  price: basePriceFor("5"),
   shortDetails: [
     "This is a listing for custom orders only. Choosing this option will be set between buyer and seller for details.",
     "Once we agree on your request you will receive the design via email within 24 hours.",
@@ -239,16 +262,8 @@ const cityStand: Product = {
 // keychains
 const keyChain: Product = {
   name: "Unique Custom Signature Keychain - With your Logo",
-  price: 10.0,
-  bulkOptions: [
-    { name: 10, price: 10.0 },
-    { name: 25, price: 20.0 },
-    { name: 50, price: 40.0 },
-    { name: 100, price: 75.0 },
-    { name: 150, price: 125.0 },
-    { name: 200, price: 150.0 },
-    { name: 500, price: 250.0 },
-  ],
+  price: basePriceFor("6"),
+  bulkOptions: bulkOptionsFor("6"),
   shortDetails: [
     "Custom Keychains are small, circular accessories made from a durable piece that is commonly used to hold keys.",
     "Unique Backpack Keychain is a popular item due to its simplicity and versatility, and Aesthetic Safety Keychain can be used for personal use or given to your friends.",
@@ -277,11 +292,8 @@ const keyChain: Product = {
 //city life stadiums
 const CLStadium: Product = {
   name: "Citi Field Stadium - New York Mets - New York City NYC Edition",
-  price: 125.0,
-  options: [
-    { name: "Stadium Only", price: 135.0 },
-    { name: "Personalizations*", price: 150.0 },
-  ],
+  price: basePriceFor("7"),
+  options: optionsFor("7"),
   shortDetails: [
     "Citi Field - New York Mets 3D Printed Replica Stadium - NYC - New York City Edition Customization!",
     "This well-detailed 3D printed model is the perfect gift, souvenir, or collectible for every New York Mets super fan. This item looks fantastic on any desk, counter, dresser, or stand.",
@@ -306,11 +318,8 @@ const CLStadium: Product = {
 //golden center stadiums
 const GCStadium: Product = {
   name: "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium",
-  price: 135.0,
-  options: [
-    { name: "Stadium Only", price: 135.0 },
-    { name: "Personalizations*", price: 150.0 },
-  ],
+  price: basePriceFor("8"),
+  options: optionsFor("8"),
   shortDetails: [
     "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium - Light The Beam Customization!",
     "This well-detailed 3D printed model is the perfect gift, souvenir, or collectible for every Sacramento Kings super fan. Looks fantastic on any desk, counter, dresser, or stand. This stadium has a removable roof option to allow for a full view of the basketball court, along with a projection of the purple beam.",
