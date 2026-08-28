@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { DISPATCH_ACTION, PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 const style = { layout: "vertical" };
 
 // Custom component to wrap the PayPalButtons and handle currency changes
@@ -19,7 +19,7 @@ const ButtonWrapper = ({
 
   useEffect(() => {
     dispatch({
-      type: "resetOptions",
+      type: DISPATCH_ACTION.RESET_OPTIONS,
       value: {
         ...options,
         currency: currency,

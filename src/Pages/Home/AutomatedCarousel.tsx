@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Carousel.css"; // Import the CSS file
-import logo from "../../assets/Main/logo.png";
-import cs1 from "../../assets/Sports/CardStand/cs2.png";
-import da1 from "../../assets/DeskToppers/Keychains/k5.png";
-import s1 from "../../assets/Stadiums/s1.png";
+import logo from "../../assets/Main/logo.webp";
+import cs1 from "../../assets/Sports/CardStand/cs2.webp";
+import da1 from "../../assets/DeskToppers/Keychains/k5.webp";
+import s1 from "../../assets/Stadiums/s1.webp";
 
 const images = [
   { src: logo, alt: "Queens Finest Prints logo" },

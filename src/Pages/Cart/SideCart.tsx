@@ -1,10 +1,6 @@
-import {
-  faMinusCircle,
-  faPlusCircle,
-  faWindowClose,
-  // faWindowClose,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
 import { useCartContext } from "../../providers/CartProvider";
 import "./Cart.css";
@@ -45,23 +41,28 @@ export const SideCart = () => {
         {quantity > 0 && (
           <div className="side-cart-single-item">
             <div className="cart-img-container">
-              <img className="cart-img" src={images[0]} alt={name} />
+              <img
+                className="cart-img"
+                src={images[0]}
+                alt={name}
+                width={200}
+                height={200}
+                loading="lazy"
+              />
               <button onClick={() => removeFromCart(id)}>Remove</button>
             </div>
             <div className="cart-text-details-container">
               <div className="product-name">{name}</div>
               <div className="single-item-quantity-container">
                 {quantity > 1 && (
-                  <FontAwesomeIcon
+                  <RemoveCircleIcon
                     className="quantity-icon minus-icon"
-                    icon={faMinusCircle}
                     onClick={() => changeItemQuantity(id, "minusOne")}
                   />
                 )}
                 <div className="product-quantity">{quantity}</div>
-                <FontAwesomeIcon
+                <AddCircleIcon
                   className="quantity-icon add-icon"
-                  icon={faPlusCircle}
                   onClick={() => changeItemQuantity(id, "addOne")}
                 />
               </div>
@@ -84,7 +85,7 @@ export const SideCart = () => {
       {/* side cart when open */}
       <div className={`side-cart  ${cartMode && "open-cart"}`}>
         <div className="side-cart-header">
-          <FontAwesomeIcon icon={faWindowClose} onClick={() => toggleCart()} />
+          <CloseIcon onClick={() => toggleCart()} />
           Cart ({cartItems.length})
         </div>
         {cartItems?.length === 0 ? (

@@ -13,7 +13,7 @@ export const SingleProduct = ({
   product: Product;
   displayType: string;
 }) => {
-  const { images, details, shortDetails, name, id, price, learnMoreLink } = product;
+  const { images, thumbnail, details, shortDetails, name, id, price, learnMoreLink } = product;
   const { addToCart, cartItems, removeFromCart } = useCartContext();
 
   const [showDetails, setShowDetails] = useState(false); // For showing `details`
@@ -103,7 +103,16 @@ export const SingleProduct = ({
       </div>
     ) : (
       <a href={learnMoreLink} target="_top">
-        <img src={images[0]} className="product-image" alt={name} />
+        <img
+          src={images[0]}
+          srcSet={thumbnail ? `${thumbnail} 330w, ${images[0]} 800w` : undefined}
+          sizes={thumbnail ? "(max-width: 600px) 90vw, 330px" : undefined}
+          className="product-image"
+          alt={name}
+          width={330}
+          height={200}
+          loading="lazy"
+        />
       </a>
     );
 

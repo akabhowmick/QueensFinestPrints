@@ -30,6 +30,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const CLEAR_CART_TIMEOUT = 20 * 60 * 1000; // 20 minutes in milliseconds
 
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("QueensFinestPrintsCart");
+    localStorage.removeItem("QueensFinestPrintsCartLastUpdated");
+  };
+
   useEffect(() => {
     let cartTotal = 0;
     cartItems.forEach((item) => {
@@ -85,12 +91,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const clearCart = () => {
-    setCartItems([]);
-    localStorage.removeItem("QueensFinestPrintsCart");
-    localStorage.removeItem("QueensFinestPrintsCartLastUpdated");
-  };
 
   const setCart = (newCart: Product[]) => {
     updateCartInLocalStorage(newCart);

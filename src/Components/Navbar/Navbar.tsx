@@ -1,14 +1,12 @@
 import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { NavLink, Outlet } from "react-router-dom";
 
-import { NavUnlisted } from "./NavbarStyles";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
-import navbarLogo from "../../assets/Main/logo.png";
+import navbarLogo from "../../assets/Main/logo.webp";
 import { links } from "../../utils/NavbarAndFooterLinks";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../../providers/CartProvider";
 
 const mobileMenuId = "mobile-nav-menu";
@@ -38,7 +36,7 @@ export const Navbar = () => {
 
   const CartLinkContent = (
     <NavLink to="/cart" className={navLinkClassName} onClick={() => setShowNavbar(false)}>
-      <FontAwesomeIcon icon={faCartShopping} />
+      <ShoppingCartIcon fontSize="small" />
       <span>Cart</span> ({cartCount})
     </NavLink>
   );
@@ -70,7 +68,7 @@ export const Navbar = () => {
       </a>
       <header className="nav-bar">
         <nav aria-label="Main navigation">
-          <NavUnlisted className="main-navbar-ul">
+          <div className="main-navbar-ul">
             <div className="main-regular-links">{renderNavList()}</div>
 
             <button
@@ -91,11 +89,13 @@ export const Navbar = () => {
               {renderNavList()}
             </div>
             {logoHeaderLink}
-          </NavUnlisted>
+          </div>
         </nav>
       </header>
       <main id="main-content">
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );

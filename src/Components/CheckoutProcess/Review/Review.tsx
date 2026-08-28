@@ -92,14 +92,14 @@ export default function Review() {
       </List>
 
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
             Shipping
           </Typography>
           <Typography gutterBottom>{`${user?.firstName || ""} ${user?.lastName || ""}`}</Typography>
           <Typography gutterBottom>{addresses.join(", ")}</Typography>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <Typography variant="h6" id="order-number">
             Order Number: #{order}
           </Typography>
@@ -110,7 +110,7 @@ export default function Review() {
         </Grid>
       </Grid>
 
-      <Grid item xs={12}>
+      <Grid size={12}>
         <form action={orderReviewFormId} method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="_cc" value={user?.email || ""} />
           <input type="text" name="_honey" style={{ display: "none" }} />

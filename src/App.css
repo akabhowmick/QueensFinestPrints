@@ -78,7 +78,7 @@ body {
 
 
 
-@media (max-width: 37.5em) {
+@media (max-width: 600px) {
   #root {
     padding-top: 4rem;
   }

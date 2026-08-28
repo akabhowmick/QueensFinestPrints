@@ -1,14 +1,31 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createBrowserRouter, Route, createRoutesFromElements } from "react-router-dom";
+import { lazy } from "react";
 import { Navbar } from "../Navbar/Navbar";
 import { Home } from "../../Pages/Home/Home";
-import { ThankYouPage } from "../../Pages/ThankYouPage/ThankYouPage";
-import Checkout from "../CheckoutProcess/Checkout/Checkout";
-import { NotFoundPage } from "../../Pages/NotFoundPage/NotFoundPage";
-import { ContactUs } from "../../Pages/ContactUs/ContactUs";
 import { ProductPage } from "../../Pages/ProductPages/ProductPage";
-import { ProductDescriptionPage } from "../../Pages/ProductPages/ProductDescriptionPage";
-import { CartPage } from "../../Pages/Cart/CartPage";
-import { UploadImageForm } from "../../Pages/UploadImage/UploadImage";
+
+const ThankYouPage = lazy(() =>
+  import("../../Pages/ThankYouPage/ThankYouPage").then((m) => ({ default: m.ThankYouPage }))
+);
+const Checkout = lazy(() => import("../CheckoutProcess/Checkout/Checkout"));
+const NotFoundPage = lazy(() =>
+  import("../../Pages/NotFoundPage/NotFoundPage").then((m) => ({ default: m.NotFoundPage }))
+);
+const ContactUs = lazy(() =>
+  import("../../Pages/ContactUs/ContactUs").then((m) => ({ default: m.ContactUs }))
+);
+const ProductDescriptionPage = lazy(() =>
+  import("../../Pages/ProductPages/ProductDescriptionPage").then((m) => ({
+    default: m.ProductDescriptionPage,
+  }))
+);
+const CartPage = lazy(() =>
+  import("../../Pages/Cart/CartPage").then((m) => ({ default: m.CartPage }))
+);
+const UploadImageForm = lazy(() =>
+  import("../../Pages/UploadImage/UploadImage").then((m) => ({ default: m.UploadImageForm }))
+);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

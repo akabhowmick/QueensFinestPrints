@@ -12,6 +12,7 @@ export const HeroSection = () => {
         loop
         id="hero-video"
         playsInline
+        preload="metadata"
         poster={posterPath} // fallback image
       >
         <source src={videoPath} type="video/mp4" />

@@ -25,6 +25,8 @@ export interface Product {
   shortDetails: string[];
   details: string[];
   images: string[];
+  /** Small (330w) variant of images[0] for the product grid's srcset. */
+  thumbnail?: string;
   desc: string;
   quantity: number;
   id: number;

@@ -204,15 +204,21 @@
   transition: max-height 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 600px) {
   .product-banner {
     margin: 0.5rem;
     padding: 0.5rem;
     font-size: 1rem;
   }
 
-  .product-banner .product-info-header h3 {
+  .product-banner .product-info-header .product-name {
     font-size: 1.25rem;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 280px;
+    margin: 10px auto;
   }
 
   .product-banner .product-info-header .discount-container {
@@ -235,7 +241,7 @@
   }
 }
 
-@media only screen and (max-width: 56.25em) {
+@media only screen and (max-width: 900px) {
   .product-banner .card {
     display: flex;
     flex-direction: column;
