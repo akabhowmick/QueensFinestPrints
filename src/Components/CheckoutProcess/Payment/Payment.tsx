@@ -5,30 +5,29 @@ import { useCartContext } from "../../../providers/CartProvider.js";
 import { Button } from "@mui/material";
 import { paypalClientId } from "../../../utils/ApiKeys.js";
 import "../Checkout/Checkout.css";
-import Swal from "sweetalert2";
+import type { CaptureSummary } from "../../../../shared/pricing";
 
-export const Payment = ({ handleNext }: { handleNext: () => void }) => {
+export const Payment = ({
+  handleNext,
+  onCaptureSuccess,
+}: {
+  handleNext: () => void;
+  onCaptureSuccess: (summary: CaptureSummary) => void;
+}) => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const { finalTotal } = useCartContext();
+  const { cartItems, finalTotal } = useCartContext();
   const currency = "USD";
 
   const handleNextClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    if (paymentSuccess) {
-      handleNext();
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Payment failed!",
-      });
-    }
+    handleNext();
   };
 
   return (
     <div>
       <div className="payment-info">
         <h2 className="page-title">Payment</h2>
+        <p className="payment-estimated-total">Estimated total: ${finalTotal.toFixed(2)}</p>
         <div className="paypal-buttons">
           <h3>Complete the payment!</h3>
           <PayPalScriptProvider
@@ -39,10 +38,11 @@ export const Payment = ({ handleNext }: { handleNext: () => void }) => {
             }}
           >
             <ButtonWrapper
-              amount={finalTotal}
+              cartItems={cartItems}
               currency={currency}
               showSpinner={true}
               setPaymentSuccess={() => setPaymentSuccess(true)}
+              onCaptureSuccess={onCaptureSuccess}
             />
           </PayPalScriptProvider>
         </div>
@@ -52,6 +52,7 @@ export const Payment = ({ handleNext }: { handleNext: () => void }) => {
         type="submit"
         variant="contained"
         color="primary"
+        disabled={!paymentSuccess}
         onClick={(e: MouseEvent<HTMLButtonElement>) => handleNextClick(e)}
       >
         Next

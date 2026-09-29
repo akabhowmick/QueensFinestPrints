@@ -1,5 +1,6 @@
 import { Product, customerChoice, requiredCustomization } from "../Types/interfaces";
 import { products } from "./Products";
+import { getCatalogItem, productIdForSkuId } from "../../shared/pricing";
 
 const isCustomerChoice = (val: unknown): val is customerChoice =>
   typeof val === "object" &&
@@ -16,28 +17,19 @@ const isRequiredCustomization = (val: unknown): val is requiredCustomization =>
 const isCartItemShape = (val: unknown): val is Record<string, unknown> => {
   if (typeof val !== "object" || val === null) return false;
   const item = val as Record<string, unknown>;
-  return typeof item.id === "number" && typeof item.quantity === "number" && item.quantity > 0;
+  return (
+    typeof item.id === "number" &&
+    typeof item.quantity === "number" &&
+    item.quantity > 0 &&
+    typeof item.skuId === "string"
+  );
 };
 
-// Mirrors CartProvider's updateItemCustomization price lookup: the price always
-// comes from the current product list, never from whatever was in storage.
-const priceForChoices = (masterProduct: Product, customerChoices?: customerChoice[]) => {
-  let price = masterProduct.price;
-  customerChoices?.forEach((choice) => {
-    const bulkMatch = masterProduct.bulkOptions?.find(
-      (opt) => opt.name.toString() === choice.value
-    );
-    const optionMatch = masterProduct.options?.find((opt) => opt.name.toString() === choice.value);
-    if (bulkMatch) price = bulkMatch.price;
-    else if (optionMatch) price = optionMatch.price;
-  });
-  return price;
-};
-
-// Parses and validates a persisted cart, dropping anything that doesn't match a
-// known product. Quantity and customization choices are trusted from storage;
-// price is always recomputed from the current Products.ts so a tampered or
-// stale localStorage value can never change what gets charged.
+// Parses and validates a persisted cart, dropping anything that doesn't match
+// a known product/SKU pair. Quantity and customization choices are trusted
+// from storage; price is always looked up from the shared pricing catalog by
+// skuId, never read from the stored blob directly, so a tampered or stale
+// localStorage value can never change what gets charged.
 export const sanitizeStoredCart = (raw: string | null): Product[] => {
   if (!raw) return [];
 
@@ -55,6 +47,10 @@ export const sanitizeStoredCart = (raw: string | null): Product[] => {
       const master = products.find((p) => p.id === item.id);
       if (!master) return null;
 
+      const skuId = item.skuId as string;
+      const skuEntry = getCatalogItem(skuId);
+      if (!skuEntry || productIdForSkuId(skuId) !== String(item.id)) return null;
+
       const customerChoices = Array.isArray(item.customerChoices)
         ? item.customerChoices.filter(isCustomerChoice)
         : undefined;
@@ -65,8 +61,9 @@ export const sanitizeStoredCart = (raw: string | null): Product[] => {
       const sanitized: Product = {
         ...master,
         quantity: item.quantity as number,
+        skuId,
         requiredCustomizations,
-        price: priceForChoices(master, customerChoices),
+        price: skuEntry.unitPriceCents / 100,
       };
       if (customerChoices) sanitized.customerChoices = customerChoices;
       return sanitized;
