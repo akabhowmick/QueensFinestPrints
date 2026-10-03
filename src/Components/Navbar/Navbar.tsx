@@ -1,16 +1,28 @@
 import "./Navbar.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { NavLink, Outlet } from "react-router-dom";
 
-import { NavUnlisted } from "./NavbarStyles";
-import "./Navbar.css";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
-import navbarLogo from "../../assets/Main/logo.png";
+import navbarLogo from "../../assets/Main/logo.webp";
 import { links } from "../../utils/NavbarAndFooterLinks";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useCartContext } from "../../providers/CartProvider";
+
+const mobileMenuId = "mobile-nav-menu";
+
+const navLinkClassName = ({
+  isActive,
+  isPending,
+  isTransitioning,
+}: {
+  isActive: boolean;
+  isPending: boolean;
+  isTransitioning: boolean;
+}) =>
+  [isPending ? "pending" : "", isActive ? "active" : "", isTransitioning ? "transitioning" : ""].join(
+    " "
+  );
 
 export const Navbar = () => {
   const { cartItems } = useCartContext();
@@ -20,81 +32,71 @@ export const Navbar = () => {
     setShowNavbar(!showNavbar);
   };
 
-  const CartLink = (
-    <NavLink
-      to="/cart"
-      className={({ isActive, isPending, isTransitioning }) =>
-        [
-          isPending ? "pending" : "",
-          isActive ? "active" : "",
-          isTransitioning ? "transitioning" : "",
-        ].join(" ")
-      }
-    >
-      <li id="cart-btn">
-        <FontAwesomeIcon icon={faCartShopping} />
-        <span>Cart</span> ({cartItems.reduce((acc, item) => acc + item.quantity, 0)})
-      </li>
+  const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+  const CartLinkContent = (
+    <NavLink to="/cart" className={navLinkClassName} onClick={() => setShowNavbar(false)}>
+      <ShoppingCartIcon fontSize="small" />
+      <span>Cart</span> ({cartCount})
     </NavLink>
   );
 
-  const linksWithNavLink = (
-    <div className="navbar-links-container">
+  const renderNavList = () => (
+    <ul className="navbar-links-container">
       {links.map((link, index) => (
-        <NavLink
-          onClick={() => setShowNavbar(false)}
-          key={index}
-          to={link.path}
-          className={({ isActive, isPending, isTransitioning }) =>
-            [
-              isPending ? "pending" : "",
-              isActive ? "active" : "",
-              isTransitioning ? "transitioning" : "",
-            ].join(" ")
-          }
-        >
-          <li>{link.name}</li>
-        </NavLink>
+        <li key={index}>
+          <NavLink onClick={() => setShowNavbar(false)} to={link.path} className={navLinkClassName}>
+            {link.name}
+          </NavLink>
+        </li>
       ))}
-      {CartLink}
-    </div>
+      <li id="cart-btn">{CartLinkContent}</li>
+    </ul>
   );
 
   const logoHeaderLink = (
     <NavLink onClick={() => setShowNavbar(false)} to="/" id="logo-with-title">
-      <img className="navbar-logo" src={navbarLogo} alt="tkd-main-logo" />
+      <img className="navbar-logo" src={navbarLogo} alt="Queens Finest Prints logo" />
       <h2>Queens Finest Prints</h2>
     </NavLink>
   );
 
   return (
     <div className="root-layout">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <header className="nav-bar">
-        <nav>
-          <NavUnlisted
-            aria-label="Larger viewport navigation menu with links"
-            className="main-navbar-ul"
-          >
-            <ul className="main-regular-links">{linksWithNavLink}</ul>
+        <nav aria-label="Main navigation">
+          <div className="main-navbar-ul">
+            <div className="main-regular-links">{renderNavList()}</div>
 
-            <div className="menu-icon" onClick={handleShowNavbar}>
+            <button
+              type="button"
+              className="menu-icon"
+              onClick={handleShowNavbar}
+              aria-expanded={showNavbar}
+              aria-controls={mobileMenuId}
+              aria-label={showNavbar ? "Close menu" : "Open menu"}
+            >
               <MenuIcon />
+            </button>
+            <div className="cart-small-screen">{CartLinkContent}</div>
+            <div
+              className={`nav-elements${showNavbar ? " nav-elements-open" : ""}`}
+              id={mobileMenuId}
+            >
+              {renderNavList()}
             </div>
-            <div className="cart-small-screen">{CartLink}</div>
-            {showNavbar && (
-              <div className="nav-elements">
-                <ul>{linksWithNavLink}</ul>
-              </div>
-            )}
             {logoHeaderLink}
-          </NavUnlisted>
+          </div>
         </nav>
       </header>
-      <main>
-        <Outlet />
+      <main id="main-content">
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </main>
     </div>
   );
 };
-
-// display the cart icon only when small screen

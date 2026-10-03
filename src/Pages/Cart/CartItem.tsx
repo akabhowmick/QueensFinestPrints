@@ -1,16 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { useCartContext } from "../../providers/CartProvider";
-import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Product } from "../../Types/interfaces";
 
 export const CartItem = ({ cartItem }: { cartItem: Product }) => {
-  const {
-    removeFromCart,
-    changeItemQuantity,
-    changeItemCustomization,
-    changeItemOption,
-    updateItemCustomization,
-  } = useCartContext();
+  const { removeFromCart, changeItemQuantity, changeItemCustomization, changeItemVariant } =
+    useCartContext();
   const { images, price, name, id, quantity, requiredCustomizations, options, bulkOptions } =
     cartItem;
 
@@ -49,16 +44,13 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
         name="product-options"
         id="product-options"
         onChange={(event) => {
-          const selectedValue = event.target.value;
-          updateItemCustomization(id, [
-            { name: `Model Type- ${event.target.name} `, value: selectedValue },
-          ]),
-            changeItemOption(id, selectedValue);
+          const selected = options.find((opt) => opt.skuId === event.target.value);
+          if (selected) changeItemVariant(id, selected.skuId, `Model Type - ${selected.name}`);
         }}
       >
-        {options.map(({ name, price }) => {
+        {options.map(({ name, skuId }) => {
           return (
-            <option key={name} value={price}>
+            <option key={skuId} value={skuId}>
               {name}
             </option>
           );
@@ -75,17 +67,12 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
         name="bulk-options"
         id="bulk-options"
         onChange={(event) => {
-          updateItemCustomization(id, [
-            {
-              name: `Bulk Option - ${event.target.selectedOptions[0].id}`,
-              value: event.target.value,
-            },
-          ]),
-            changeItemOption(id, event.target.value);
+          const selected = bulkOptions.find((opt) => opt.skuId === event.target.value);
+          if (selected) changeItemVariant(id, selected.skuId, `Bulk Option - Pack of ${selected.name}`);
         }}
       >
-        {bulkOptions.map(({ name, price }) => (
-          <option id={`Pack of ${name}`} key={name} value={price}>
+        {bulkOptions.map(({ name, price, skuId }) => (
+          <option key={skuId} value={skuId}>
             {name} Pack - ${price}
           </option>
         ))}
@@ -98,23 +85,28 @@ export const CartItem = ({ cartItem }: { cartItem: Product }) => {
       {quantity > 0 && (
         <div className="cart-single-item">
           <div className="cart-img-container">
-            <img className="cart-img" src={images[0]} alt="cart-image" />
+            <img
+              className="cart-img"
+              src={images[0]}
+              alt={name}
+              width={200}
+              height={200}
+              loading="lazy"
+            />
             <button onClick={() => removeFromCart(id)}>Remove</button>
           </div>
           <div className="cart-text-details-container">
             <div className="product-name">{name}</div>
             <div className="single-item-quantity-container">
               {quantity > 1 && (
-                <FontAwesomeIcon
+                <RemoveCircleIcon
                   className="quantity-icon minus-icon"
-                  icon={faMinusCircle}
                   onClick={() => changeItemQuantity(id, "minusOne")}
                 />
               )}
               <div className="product-quantity">{quantity}</div>
-              <FontAwesomeIcon
+              <AddCircleIcon
                 className="quantity-icon add-icon"
-                icon={faPlusCircle}
                 onClick={() => changeItemQuantity(id, "addOne")}
               />
             </div>

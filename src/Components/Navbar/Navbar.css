@@ -1,3 +1,33 @@
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -3rem;
+  z-index: 100001;
+  background: #fff;
+  color: black;
+  padding: 0.75rem 1rem;
+  transition: top 0.15s ease-in;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.main-navbar-ul {
+  display: flex;
+  align-items: center;
+  background-color: var(--nav-dark);
+  margin: 0 0 -5px;
+  padding: 1rem;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  z-index: 100000;
+}
+
+.main-navbar-ul .active {
+  border-bottom: 2px solid var(--logo-orange);
+}
+
 .navbar-logo {
   width: 50px;
   margin: 0.25rem;
@@ -12,12 +42,14 @@
   display: flex;
 }
 
-.main-navbar-ul a {
+.main-navbar-ul li a,
+#logo-with-title {
   text-decoration: none;
 }
 
-.main-navbar-ul a li {
-  color: var(--logo-orange);
+.main-navbar-ul li a {
+  display: block;
+  color: #ffffff;
   font-size: 1.1rem;
   position: relative;
   list-style: none;
@@ -26,7 +58,7 @@
   border-radius: 5px;
 }
 
-.main-navbar-ul a li:hover {
+.main-navbar-ul li:hover a {
   font-size: 1.15rem;
 }
 
@@ -36,19 +68,23 @@
 }
 
 #logo-with-title h2 {
-  color: var(--logo-orange);
+  color: #ffffff;
 }
 
 .menu-icon {
   display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .cart-small-screen {
   display: none;
 }
 
-@media only screen and (max-width: 56.25em) {
-  .main-navbar-ul a li {
+@media only screen and (max-width: 900px) {
+  .main-navbar-ul li a {
     font-size: 1rem;
   }
   #logo-with-title h2 {
@@ -56,10 +92,7 @@
   }
 }
 
-@media only screen and (max-width: 37.5em) {
-  .nav-elements {
-    display: block;
-  }
+@media only screen and (max-width: 600px) {
   .navbar-links-container {
     flex-direction: column;
   }
@@ -79,16 +112,16 @@
 
   .main-navbar-ul {
     position: fixed;
-    z-index: 100;
     top: 0;
     right: 0;
     left: 0;
   }
 
-  .nav-elements {
+  .nav-elements.nav-elements-open {
+    display: block;
     right: 0;
     top: 70px;
-    background-color: #36454F;
+    background-color: var(--nav-dark);
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;

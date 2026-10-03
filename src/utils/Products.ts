@@ -1,58 +1,103 @@
 import { Product, requiredCustomization } from "../Types/interfaces";
+import { productCatalog } from "../../shared/pricing";
 
-import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.png";
-import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.png";
-import gameCardHolder3 from "../assets/Sports/GameCardHolderStand/gc3.png";
+import gameCardHolder1 from "../assets/Sports/GameCardHolderStand/gc1.webp";
+import gameCardHolder2 from "../assets/Sports/GameCardHolderStand/gc2.webp";
+import gameCardHolder3 from "../assets/Sports/GameCardHolderStand/gc3.webp";
 
-import cardStand1 from "../assets/Sports/CardStand/cs1.png";
-import cardStand2 from "../assets/Sports/CardStand/cs2.png";
-import cardStand3 from "../assets/Sports/CardStand/cs3.png";
-import cardStand4 from "../assets/Sports/CardStand/cs4.png";
-import cardStand5 from "../assets/Sports/CardStand/cs5.png";
-import cardStand6 from "../assets/Sports/CardStand/cs6.png";
+import cardStand1 from "../assets/Sports/CardStand/cs1.webp";
+import cardStand2 from "../assets/Sports/CardStand/cs2.webp";
+import cardStand3 from "../assets/Sports/CardStand/cs3.webp";
+import cardStand4 from "../assets/Sports/CardStand/cs4.webp";
+import cardStand5 from "../assets/Sports/CardStand/cs5.webp";
+import cardStand6 from "../assets/Sports/CardStand/cs6.webp";
 
-import hsh1 from "../assets/Sports/HorizontalSixCardStand/h1.png";
-import hsh2 from "../assets/Sports/HorizontalSixCardStand/h2.png";
-import hsh3 from "../assets/Sports/HorizontalSixCardStand/h3.png";
+import hsh1 from "../assets/Sports/HorizontalSixCardStand/h1.webp";
+import hsh2 from "../assets/Sports/HorizontalSixCardStand/h2.webp";
+import hsh3 from "../assets/Sports/HorizontalSixCardStand/h3.webp";
 
-import h1 from "../assets/Sports/ThreeCardStand/h1.png";
-import h2 from "../assets/Sports/ThreeCardStand/h2.png";
-import h3 from "../assets/Sports/ThreeCardStand/h3.png";
-import h4 from "../assets/Sports/ThreeCardStand/h4.png";
-
-
-import cs1 from "../assets/DeskToppers/CityStand/cs1.png";
-import cs2 from "../assets/DeskToppers/CityStand/cs2.png";
-import cs3 from "../assets/DeskToppers/CityStand/cs3.png";
-import cs4 from "../assets/DeskToppers/CityStand/cs4.png";
-import cs5 from "../assets/DeskToppers/CityStand/cs5.png";
+import h1 from "../assets/Sports/ThreeCardStand/h1.webp";
+import h2 from "../assets/Sports/ThreeCardStand/h2.webp";
+import h3 from "../assets/Sports/ThreeCardStand/h3.webp";
+import h4 from "../assets/Sports/ThreeCardStand/h4.webp";
 
 
-import k1 from "../assets/DeskToppers/Keychains/k1.png";
-import k2 from "../assets/DeskToppers/Keychains/k2.png";
-import k3 from "../assets/DeskToppers/Keychains/k3.png";
-import k4 from "../assets/DeskToppers/Keychains/k4.png";
-import k5 from "../assets/DeskToppers/Keychains/k5.png";
-import k6 from "../assets/DeskToppers/Keychains/k6.png";
+import cs1 from "../assets/DeskToppers/CityStand/cs1.webp";
+import cs2 from "../assets/DeskToppers/CityStand/cs2.webp";
+import cs3 from "../assets/DeskToppers/CityStand/cs3.webp";
+import cs4 from "../assets/DeskToppers/CityStand/cs4.webp";
+import cs5 from "../assets/DeskToppers/CityStand/cs5.webp";
 
-import bcs1 from "../assets/Sports/BleacherCardStand/b1.png";
-import bcs2 from "../assets/Sports/BleacherCardStand/b2.png";
 
-import gcs1 from "../assets/Stadiums/GC/s1.png";
-import gcs2 from "../assets/Stadiums/GC/s2.png";
-import gcs3 from "../assets/Stadiums/GC/s3.png";
+import k1 from "../assets/DeskToppers/Keychains/k1.webp";
+import k2 from "../assets/DeskToppers/Keychains/k2.webp";
+import k3 from "../assets/DeskToppers/Keychains/k3.webp";
+import k4 from "../assets/DeskToppers/Keychains/k4.webp";
+import k5 from "../assets/DeskToppers/Keychains/k5.webp";
+import k6 from "../assets/DeskToppers/Keychains/k6.webp";
 
-import cls1 from "../assets/Stadiums/CL/s1.png";
-import cls2 from "../assets/Stadiums/CL/s2.png";
-import cls3 from "../assets/Stadiums/CL/s3.png";
-import cls4 from "../assets/Stadiums/CL/s2.png";
-import cls5 from "../assets/Stadiums/CL/s3.png";
+import bcs1 from "../assets/Sports/BleacherCardStand/b1.webp";
+import bcs2 from "../assets/Sports/BleacherCardStand/b2.webp";
+
+import gcs1 from "../assets/Stadiums/GC/s1.webp";
+import gcs2 from "../assets/Stadiums/GC/s2.webp";
+import gcs3 from "../assets/Stadiums/GC/s3.webp";
+
+import cls1 from "../assets/Stadiums/CL/s1.webp";
+import cls2 from "../assets/Stadiums/CL/s2.webp";
+import cls3 from "../assets/Stadiums/CL/s3.webp";
+import cls4 from "../assets/Stadiums/CL/s2.webp";
+import cls5 from "../assets/Stadiums/CL/s3.webp";
 
 import video from "../assets/Main/main.mp4"
-import poster from "../assets/Main/poster.jpeg"
+import poster from "../assets/Main/poster.webp"
+
+// 330w variants of each product's first (grid-card) image, for srcset.
+import cardStand1Thumb from "../assets/Sports/CardStand/cs1-330w.webp";
+import gameCardHolder1Thumb from "../assets/Sports/GameCardHolderStand/gc1-330w.webp";
+import hsh1Thumb from "../assets/Sports/HorizontalSixCardStand/h1-330w.webp";
+import h1Thumb from "../assets/Sports/ThreeCardStand/h1-330w.webp";
+import bcs1Thumb from "../assets/Sports/BleacherCardStand/b1-330w.webp";
+import cs1Thumb from "../assets/DeskToppers/CityStand/cs1-330w.webp";
+import k1Thumb from "../assets/DeskToppers/Keychains/k1-330w.webp";
+import cls2Thumb from "../assets/Stadiums/CL/s2-330w.webp";
+import gcs2Thumb from "../assets/Stadiums/GC/s2-330w.webp";
 
 export const videoPath = video;
 export const posterPath = poster;
+
+// Prices come from the shared pricing catalog (the same source the Netlify
+// Functions use) so there is exactly one place order money is defined.
+const catalogEntryFor = (productId: string) => {
+  const entry = productCatalog.find((product) => product.productId === productId);
+  if (!entry) throw new Error(`Missing shared catalog entry for product ${productId}`);
+  return entry;
+};
+
+const basePriceFor = (productId: string) => catalogEntryFor(productId).variants[0].unitPriceCents / 100;
+
+const optionsFor = (productId: string) => {
+  const entry = catalogEntryFor(productId);
+  if (entry.variantKind !== "option") return undefined;
+  return entry.variants
+    .filter((variant) => variant.skuId !== `${productId}-default`)
+    .map((variant) => ({
+      name: variant.label as string,
+      price: variant.unitPriceCents / 100,
+      skuId: variant.skuId,
+    }));
+};
+
+const bulkOptionsFor = (productId: string) => {
+  const entry = catalogEntryFor(productId);
+  if (entry.variantKind !== "bulk") return undefined;
+  return entry.variants.map((variant) => ({
+    name: variant.label as number,
+    price: variant.unitPriceCents / 100,
+    skuId: variant.skuId,
+  }));
+};
+
 const commonCustomizations: requiredCustomization[] = [
   { name: "Color of Holder", value: "" },
   { name: "Color of Letterings", value: "" },
@@ -62,19 +107,8 @@ const commonCustomizations: requiredCustomization[] = [
 // card stand
 const cardStand: Product = {
   name: "Custom Single Card Stand",
-  price: 25.0,
-  bulkOptions: [
-    { name: 1, price: 25.0 },
-    { name: 2, price: 45.0 },
-    { name: 3, price: 60.0 },
-    { name: 4, price: 75.0 },
-    { name: 5, price: 90.0 },
-    { name: 6, price: 105.0 },
-    { name: 8, price: 128.0 },
-    { name: 10, price: 150.0 },
-    { name: 20, price: 320.0 },
-    { name: 25, price: 375.0 },
-  ],
+  price: basePriceFor("1"),
+  bulkOptions: bulkOptionsFor("1"),
   shortDetails: [
     "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   ],
@@ -90,6 +124,7 @@ const cardStand: Product = {
     "We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits for you.",
   ],
   images: [cardStand1, cardStand2, cardStand3, cardStand4, cardStand5, cardStand6],
+  thumbnail: cardStand1Thumb,
   desc: "Display your favorite sports or trading cards with YOUR logo or your own personalized wording.",
   quantity: 1,
   id: 1,
@@ -100,7 +135,7 @@ const cardStand: Product = {
 // game display
 const gameCardHolder: Product = {
   name: "Game Display Card Holder Stand",
-  price: 15.0,
+  price: basePriceFor("2"),
   shortDetails: [
     "We present to your attention our Game Display Card Holder Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
     "Card Storage Stand is the perfect way to display your affirmation card, business card. The perfect Card Organizer for people who just want to showcase their information cards in the workplace.",
@@ -118,6 +153,7 @@ const gameCardHolder: Product = {
     "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
   images: [gameCardHolder1, gameCardHolder2, gameCardHolder3],
+  thumbnail: gameCardHolder1Thumb,
   desc: "",
   quantity: 1,
   id: 2,
@@ -128,7 +164,7 @@ const gameCardHolder: Product = {
 // horizontal
 const horizontalSixCardStand: Product = {
   name: "Custom 6-Card Stand",
-  price: 85.0,
+  price: basePriceFor("3"),
   shortDetails: [
     "We present to your attention our 6 Card (Horizontal) Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professional's day gift.",
     "Sports card displays are the perfect way to display your sports cards along with your brand!",
@@ -147,6 +183,7 @@ const horizontalSixCardStand: Product = {
     "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
   images: [hsh1, hsh2, hsh3],
+  thumbnail: hsh1Thumb,
   desc: "",
   quantity: 1,
   id: 3,
@@ -157,7 +194,7 @@ const horizontalSixCardStand: Product = {
 // horizontal
 const BleacherCardStand: Product = {
   name: "3-Tiered Bleachers - Card Display",
-  price: 100.0,
+  price: basePriceFor("9"),
   shortDetails: [
     "Display your favorite sports or trading cards with YOUR logo or your own personalized wording. This design holds up to 21 cards at once!",
     "Lead time for custom orders are around 7-10 days for manufacturing!",
@@ -172,6 +209,7 @@ const BleacherCardStand: Product = {
     "*Cards in the pictures are NOT included. We will try our best to accommodate requests for custom logos but 3D printers have a maximum level of detail. We will work with you to yield the design that best fits for you.",
   ],
   images: [bcs1, bcs2],
+  thumbnail: bcs1Thumb,
   desc: "3-Tiered Bleachers - Card Display - Custom Logo",
   quantity: 1,
   id: 9,
@@ -182,7 +220,7 @@ const BleacherCardStand: Product = {
 // 3 card
 const threeCardStand: Product = {
   name: "Custom 3-Card Stand",
-  price: 49.99,
+  price: basePriceFor("4"),
   requiredCustomizations: commonCustomizations,
   shortDetails: [
     "We present to your attention our 3 Cards Custom Logo Card Stand for desk of the highest quality. It is a unique administrative professionals day gift.",
@@ -204,6 +242,7 @@ const threeCardStand: Product = {
     "If you have any problems after the purchase, please feel free to contact us for customer service, which will make your purchase absolutely risk-free and you could enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
   images: [h1, h2, h3, h4],
+  thumbnail: h1Thumb,
   desc: "3 Cards Custom Logo Card Stand, Sports Card Display, Trading Card Display Stand, Business Card Stand, Card Organizer, Card Holder Stand",
   quantity: 1,
   id: 4,
@@ -214,7 +253,7 @@ const threeCardStand: Product = {
 // city stand
 const cityStand: Product = {
   name: "Unique Custom New York City Skyline",
-  price: 10.0,
+  price: basePriceFor("5"),
   shortDetails: [
     "This is a listing for custom orders only. Choosing this option will be set between buyer and seller for details.",
     "Once we agree on your request you will receive the design via email within 24 hours.",
@@ -229,6 +268,7 @@ const cityStand: Product = {
     "If you have any problems after the purchase, please contact us for customer service, which will make your purchase risk-free and you can enjoy the quality and durability. And we do hope you have a pleasant shopping experience.",
   ],
   images: [cs1, cs2, cs3, cs4, cs5],
+  thumbnail: cs1Thumb,
   desc: "Custom City Stand!",
   quantity: 1,
   id: 5,
@@ -239,16 +279,8 @@ const cityStand: Product = {
 // keychains
 const keyChain: Product = {
   name: "Unique Custom Signature Keychain - With your Logo",
-  price: 10.0,
-  bulkOptions: [
-    { name: 10, price: 10.0 },
-    { name: 25, price: 20.0 },
-    { name: 50, price: 40.0 },
-    { name: 100, price: 75.0 },
-    { name: 150, price: 125.0 },
-    { name: 200, price: 150.0 },
-    { name: 500, price: 250.0 },
-  ],
+  price: basePriceFor("6"),
+  bulkOptions: bulkOptionsFor("6"),
   shortDetails: [
     "Custom Keychains are small, circular accessories made from a durable piece that is commonly used to hold keys.",
     "Unique Backpack Keychain is a popular item due to its simplicity and versatility, and Aesthetic Safety Keychain can be used for personal use or given to your friends.",
@@ -267,6 +299,7 @@ const keyChain: Product = {
     "- We go into production and ship out ASAP!",
   ],
   images: [k1, k2, k3, k4, k5, k6],
+  thumbnail: k1Thumb,
   desc: "Your Personalized Keychain",
   quantity: 1,
   id: 6,
@@ -277,11 +310,8 @@ const keyChain: Product = {
 //city life stadiums
 const CLStadium: Product = {
   name: "Citi Field Stadium - New York Mets - New York City NYC Edition",
-  price: 125.0,
-  options: [
-    { name: "Stadium Only", price: 135.0 },
-    { name: "Personalizations*", price: 150.0 },
-  ],
+  price: basePriceFor("7"),
+  options: optionsFor("7"),
   shortDetails: [
     "Citi Field - New York Mets 3D Printed Replica Stadium - NYC - New York City Edition Customization!",
     "This well-detailed 3D printed model is the perfect gift, souvenir, or collectible for every New York Mets super fan. This item looks fantastic on any desk, counter, dresser, or stand.",
@@ -293,9 +323,10 @@ const CLStadium: Product = {
     "Feel free to message us with requests for other stadiums for any sport.",
     "Please keep in mind that every 3D-printed part is unique. The photos give a good representation of what to expect.",
     "Feel free to message us with requests for other stadiums for any sport.",
-    "Please contact me with any questions at queensfinestprints@gmail.com",
+    "Please contact us with any questions through our Contact Us page.",
   ],
   images: [cls2, cls1, cls3, cls4, cls5],
+  thumbnail: cls2Thumb,
   desc: "Citi Field Stadium - New York Mets - New York City NYC Edition",
   quantity: 1,
   id: 7,
@@ -306,11 +337,8 @@ const CLStadium: Product = {
 //golden center stadiums
 const GCStadium: Product = {
   name: "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium",
-  price: 135.0,
-  options: [
-    { name: "Stadium Only", price: 135.0 },
-    { name: "Personalizations*", price: 150.0 },
-  ],
+  price: basePriceFor("8"),
+  options: optionsFor("8"),
   shortDetails: [
     "Golden 1 Center - Sacramento Kings 3D Printed Replica Stadium - Light The Beam Customization!",
     "This well-detailed 3D printed model is the perfect gift, souvenir, or collectible for every Sacramento Kings super fan. Looks fantastic on any desk, counter, dresser, or stand. This stadium has a removable roof option to allow for a full view of the basketball court, along with a projection of the purple beam.",
@@ -321,9 +349,10 @@ const GCStadium: Product = {
     "Measurements: 6in x 6in x 3in (Beam projects 5in, making the total height 8in tall)",
     "Please keep in mind that every 3D-printed part is unique. The photos give a good representation of what to expect.",
     "Feel free to message us with requests for other stadiums for any sport.",
-    "Please contact me with any questions at queensfinestprints@gmail.com",
+    "Please contact us with any questions through our Contact Us page.",
   ],
   images: [gcs2, gcs1, gcs3],
+  thumbnail: gcs2Thumb,
   desc: "Golden 1 Center Replica Stadium",
   quantity: 1,
   id: 8,

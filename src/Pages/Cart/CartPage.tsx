@@ -22,8 +22,8 @@ export const CartPage = () => {
   const pageCartViews =
     cartItems?.length === 0 ? (
       <div className="empty-cart-container">
-        <h3>Your cart is empty!</h3>
-        <h4>Consider one of the following items:</h4>
+        <h2>Your cart is empty!</h2>
+        <h3>Consider one of the following items:</h3>
         <div className="cart-display-empty-products">
           {cartSuggestions.map((product) => {
             return <SingleProduct key={product.id} product={product} displayType="card" />;
@@ -43,7 +43,7 @@ export const CartPage = () => {
 
   return (
     <section className="cart-page">
-      <h2 className="page-header">View Your Cart</h2>
+      <h1 className="page-header">View Your Cart</h1>
       <div className="cart-page-container">{pageCartViews}</div>
     </section>
   );

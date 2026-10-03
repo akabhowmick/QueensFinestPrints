@@ -11,7 +11,7 @@
   padding: 1.25rem;
 }
 
-@media screen and (max-width: 37.5em) {
+@media screen and (max-width: 600px) {
   #check-out-stepper {
     flex-wrap: wrap;
     gap: 10px;

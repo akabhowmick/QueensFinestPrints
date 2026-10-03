@@ -3,6 +3,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 interface options {
   name: string | number;
   price: number;
+  skuId: string;
 }
 
 export interface requiredCustomization {
@@ -25,11 +26,17 @@ export interface Product {
   shortDetails: string[];
   details: string[];
   images: string[];
+  /** Small (330w) variant of images[0] for the product grid's srcset. */
+  thumbnail?: string;
   desc: string;
   quantity: number;
   id: number;
   type: string;
   learnMoreLink: string;
+  // Identifies the exact priced variant (size/style/bulk-pack) a cart line
+  // represents. Populated once a catalog product is added to the cart; the
+  // server prices orders by skuId alone, never by anything else on this type.
+  skuId?: string;
 }
 
 export interface User {

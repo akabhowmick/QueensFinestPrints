@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useEffect, useState, createContext, useContext, ReactNode } from "react";
 import { v4 } from "uuid";
 import { User } from "../Types/interfaces";

@@ -1,9 +1,9 @@
 import "./Home.css";
-import logo from "../../assets/Main/logo.png";
+import logo from "../../assets/Main/logo.webp";
 import { useState } from "react";
 import { reviewTexts } from "../../utils/HelpfulText";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export const ReviewCarousel = () => {
   const [currentReviewIndex, setCurrentReviewIndex] = useState(2);
@@ -24,10 +24,14 @@ export const ReviewCarousel = () => {
 
   const reviewBoxItems = reviewTexts.map((review) => {
     return (
-      <div key={review.id} className={getClassesForCarouselItem(review.id)}>
+      <div
+        key={review.id}
+        className={getClassesForCarouselItem(review.id)}
+        aria-hidden={review.id !== currentReviewIndex}
+      >
         <div className="review-author">
           <div className="avatar">
-            <img src={logo} alt="queens-finest-logo" />
+            <img src={logo} alt="" />
           </div>
           <div className="details">
             <h3 className="name">{review.name}</h3>
@@ -60,12 +64,22 @@ export const ReviewCarousel = () => {
         <h2 className="header-md">Trusted by Clients</h2>
         <div className="review-carousel">{reviewBoxItems}</div>
         <div className="slide-ctrl-container">
-          <div className="review-buttons" onClick={() => handleBtnUpdate(-1)}>
-            <FontAwesomeIcon icon={faArrowLeft} />
-          </div>
-          <div className="review-buttons" onClick={() => handleBtnUpdate(1)}>
-            <FontAwesomeIcon icon={faArrowRight} />
-          </div>
+          <button
+            type="button"
+            className="review-buttons"
+            onClick={() => handleBtnUpdate(-1)}
+            aria-label="Previous review"
+          >
+            <ArrowBackIcon />
+          </button>
+          <button
+            type="button"
+            className="review-buttons"
+            onClick={() => handleBtnUpdate(1)}
+            aria-label="Next review"
+          >
+            <ArrowForwardIcon />
+          </button>
         </div>
       </section>
     </div>

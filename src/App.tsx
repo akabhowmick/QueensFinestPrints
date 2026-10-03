@@ -18,7 +18,9 @@ function App() {
         <CartProvider>
           <RouterProvider router={router} />
           {/* <Cart /> */}
-          <FloatingCartButton />
+          <nav aria-label="Cart shortcut">
+            <FloatingCartButton />
+          </nav>
           <Footer />
         </CartProvider>
       </UserProvider>

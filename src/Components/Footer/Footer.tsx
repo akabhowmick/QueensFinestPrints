@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-import navbarLogo from "../../assets/Main/logo.png";
+import navbarLogo from "../../assets/Main/logo.webp";
 
 import { SiteLink } from "../../Types/interfaces";
 import { socialButtons } from "../../utils/SocialMediaLink";
@@ -15,19 +15,19 @@ const footerSiteLinks: SiteLink[] = [
 export const Footer = () => {
   const logoFooterLink = (
     <a href="/" id="logo-with-title">
-      <img className="navbar-logo" src={navbarLogo} alt="tkd-main-logo" />
-      <h3>Queens Finest Prints</h3>
+      <img className="navbar-logo" src={navbarLogo} alt="Queens Finest Prints logo" />
+      <p className="footer-logo-title">Queens Finest Prints</p>
     </a>
   );
   return (
     <>
       <footer className="footer">
         <div className="footer-left col-md-4 col-sm-6">
-          <h4 className="about">{heroText}</h4>
+          <p className="about">{heroText}</p>
           <div id="social-links">{socialButtons}</div>
           <p className="about">
             For more tailor-made sites, please visit:
-            <br /> <a href="http://akashbhowmick.com/">AKA CODE</a>
+            <br /> <a href="https://akashbhowmick.com/">AKA CODE</a>
           </p>
         </div>
         <div className="footer-right col-md-4 col-sm-6">
