@@ -1,5 +1,7 @@
 .site-footer {
-  background: var(--accent);
+  /* Darker than --accent (the button/link blue): a full-bleed block of the
+     brighter blue read as too loud, so the footer gets its own deeper shade. */
+  background: var(--accent-hover);
   border-top: 4px solid var(--mark);
   color: var(--paper);
   padding-top: var(--space-8);
