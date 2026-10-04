@@ -56,7 +56,7 @@
   font-size: var(--text-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(252, 251, 247, 0.72);
+  color: var(--paper);
   margin-bottom: var(--space-4);
 }
 
@@ -73,6 +73,7 @@
 }
 
 .site-footer__social a {
+  position: relative;
   display: inline-grid;
   place-items: center;
   width: 44px;
@@ -81,10 +82,28 @@
   border-radius: var(--radius);
 }
 
-.site-footer__social a:hover {
-  border-color: var(--mark);
-  color: var(--mark);
+/* Underline draws in on hover/focus instead of recoloring the icon. */
+.site-footer__social a::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 6px;
+  height: 2px;
+  background: var(--mark);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s var(--ease);
+}
+
+.site-footer__social a:hover,
+.site-footer__social a:focus-visible {
   text-decoration: none;
+}
+
+.site-footer__social a:hover::after,
+.site-footer__social a:focus-visible::after {
+  transform: scaleX(1);
 }
 
 .site-footer__social svg {
