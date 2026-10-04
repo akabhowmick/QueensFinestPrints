@@ -20,6 +20,7 @@
   --accent-hover: #082c75;
   --accent-tint: #eef2fa;
   --mark: #f5791d;
+  --mark-tint: #fdeee0;
 
   /* Derived neutrals (ink at low alpha) for dividers and image wells. */
   --rule: rgba(16, 16, 20, 0.14);
@@ -245,9 +246,9 @@ a {
 
 .tag-mark {
   display: inline-block;
-  padding: 0.1rem 0.45rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 3px;
-  background: var(--mark);
+  background: var(--mark-tint);
   color: var(--ink);
   font-weight: 600;
   font-size: var(--text-xs);

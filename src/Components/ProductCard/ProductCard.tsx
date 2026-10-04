@@ -48,7 +48,9 @@ export const ProductCard = ({
 
       <div className="product-card__body">
         <Heading className="product-card__name">
-          <Link to={productPath}>{name}</Link>
+          <Link to={productPath} title={name}>
+            {name}
+          </Link>
         </Heading>
         <p className="product-card__price">
           <span className="product-card__now">

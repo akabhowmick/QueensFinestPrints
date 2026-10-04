@@ -61,14 +61,20 @@
 .product-card__body {
   display: grid;
   gap: var(--space-2);
+  min-width: 0;
 }
 
 .product-card__name {
+  min-width: 0;
   font-size: var(--text-lg);
   line-height: 1.25;
 }
 
 .product-card__name a {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   color: var(--ink);
   text-decoration: none;
 }
