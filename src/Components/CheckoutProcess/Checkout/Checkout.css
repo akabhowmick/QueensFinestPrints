@@ -1,42 +1,47 @@
 #checkout-container {
-  max-width: 85%;
+  padding-inline: var(--gutter);
 }
 
-.paypal-buttons, #order-number {
+.checkout-panel {
+  border-color: var(--rule) !important;
+}
+
+.checkout-title {
+  font-size: var(--text-3xl) !important;
+  letter-spacing: -0.01em;
+}
+
+.payment-info {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.payment-info .page-title {
+  font-size: var(--text-2xl);
+}
+
+.payment-estimated-total {
+  font-size: var(--text-lg);
+}
+
+.paypal-buttons,
+#order-number {
   text-align: center;
 }
 
-#order-number{
-  text-decoration:  underline;
+#order-number {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
   padding: 1.25rem;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   #check-out-stepper {
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  .css-j5w0w9-MuiStepConnector-root {
+  #check-out-stepper .MuiStepConnector-root {
     display: none;
-  }
-  #checkout-container {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 900px) {
-  .css-126nd9x-MuiPaper-root {
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    padding: 12px;
-  }
-}
-
-@media (min-width: 900px) {
-  .css-126nd9x-MuiPaper-root {
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-    padding: 24px;
   }
 }

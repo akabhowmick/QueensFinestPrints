@@ -1,0 +1,129 @@
+/* Restyles react-image-gallery to the ink-on-paper palette. */
+
+.gallery .image-gallery-slide-wrapper {
+  background: var(--well);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.gallery .image-gallery-slide .image-gallery-image {
+  aspect-ratio: 1 / 1;
+  max-height: min(72vh, 640px);
+  padding: var(--space-5);
+  mix-blend-mode: multiply;
+}
+
+.gallery .fullscreen .image-gallery-slide .image-gallery-image {
+  aspect-ratio: auto;
+  max-height: calc(100vh - 80px);
+  mix-blend-mode: normal;
+}
+
+/* Arrows / fullscreen: small ink buttons instead of huge white chevrons. */
+.gallery .image-gallery-icon {
+  color: var(--ink);
+  filter: none;
+}
+
+.gallery .image-gallery-left-nav,
+.gallery .image-gallery-right-nav {
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: rgba(252, 251, 247, 0.9);
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+}
+
+.gallery .image-gallery-left-nav {
+  left: var(--space-3);
+}
+
+.gallery .image-gallery-right-nav {
+  right: var(--space-3);
+}
+
+.gallery .image-gallery-left-nav .image-gallery-svg,
+.gallery .image-gallery-right-nav .image-gallery-svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.gallery .image-gallery-fullscreen-button {
+  padding: var(--space-3);
+}
+
+.gallery .image-gallery-fullscreen-button .image-gallery-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.gallery .fullscreen .image-gallery-icon {
+  color: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery .image-gallery-icon:hover {
+    color: var(--accent);
+  }
+  .gallery .image-gallery-icon:hover .image-gallery-svg {
+    transform: none;
+  }
+}
+
+.gallery .image-gallery-icon:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.gallery .image-gallery-thumbnails {
+  padding: var(--space-3) 0 0;
+}
+
+.gallery .image-gallery-thumbnails .image-gallery-thumbnails-container {
+  text-align: left;
+}
+
+.gallery .image-gallery-thumbnail {
+  width: 76px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius);
+  background: var(--well);
+  overflow: hidden;
+}
+
+.gallery .image-gallery-thumbnail + .image-gallery-thumbnail {
+  margin-left: var(--space-2);
+}
+
+.gallery .image-gallery-thumbnail .image-gallery-thumbnail-image {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.gallery .image-gallery-thumbnail.active,
+.gallery .image-gallery-thumbnail:focus,
+.gallery .image-gallery-thumbnail:hover {
+  border: 1.5px solid var(--ink);
+}
+
+.gallery .image-gallery-thumbnail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .gallery .image-gallery-thumbnail {
+    width: 60px;
+    border-width: 1.5px;
+  }
+
+  .gallery .image-gallery-thumbnail.active,
+  .gallery .image-gallery-thumbnail:focus {
+    border-width: 1.5px;
+  }
+}

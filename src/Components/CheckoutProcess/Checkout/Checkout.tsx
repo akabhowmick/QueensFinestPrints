@@ -1,13 +1,11 @@
 import * as React from "react";
 import "./Checkout.css";
-import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { Shipping } from "../Shipping/Shipping";
 import { Payment } from "../Payment/Payment";
@@ -15,8 +13,6 @@ import Review from "../Review/Review";
 import type { CaptureSummary } from "../../../../shared/pricing";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
-
-const defaultTheme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -44,19 +40,14 @@ export default function Checkout() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-
-      <Container
-        maxWidth="sm"
-        sx={{ mb: 4, paddingTop: "5rem" }}
-        id="checkout-container"
-      >
+    <>
+      <Container maxWidth="md" id="checkout-container">
         <Paper
           variant="outlined"
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+          className="checkout-panel"
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2.5, md: 5 } }}
         >
-          <Typography component="h1" variant="h4" align="center">
+          <Typography component="h1" variant="h4" align="center" className="checkout-title">
             Checkout
           </Typography>
           <Stepper
@@ -86,6 +77,6 @@ export default function Checkout() {
           )}
         </Paper>
       </Container>
-    </ThemeProvider>
+    </>
   );
 }

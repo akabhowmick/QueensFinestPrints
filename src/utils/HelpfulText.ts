@@ -1,6 +1,3 @@
-export const heroText =
-  " Using our cutting-edge technology, we able to develop and build completely unique and custom 3D printed models from scratch for everything from Funko Pop Stands to City Skylines!";
-
 const orderPlacement = [
   "HOW TO PLACE AN ORDER",
   "1. Select the product variation that you are purchasing.",

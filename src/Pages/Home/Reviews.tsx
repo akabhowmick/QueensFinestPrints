@@ -1,87 +1,27 @@
-import "./Home.css";
-import logo from "../../assets/Main/logo.webp";
-import { useState } from "react";
 import { reviewTexts } from "../../utils/HelpfulText";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-export const ReviewCarousel = () => {
-  const [currentReviewIndex, setCurrentReviewIndex] = useState(2);
-  const [prevReviewIndex, setPrevReviewIndex] = useState(currentReviewIndex - 1);
-  const [nextReviewIndex, setNextReviewIndex] = useState(currentReviewIndex + 1);
-
-  const getClassesForCarouselItem = (id: number) => {
-    let defaultClasses = "review-item ";
-    if (id === currentReviewIndex) {
-      defaultClasses += " active";
-    } else if (id === prevReviewIndex) {
-      defaultClasses += " prev";
-    } else if (id === nextReviewIndex) {
-      defaultClasses += " next";
-    }
-    return defaultClasses;
-  };
-
-  const reviewBoxItems = reviewTexts.map((review) => {
-    return (
-      <div
-        key={review.id}
-        className={getClassesForCarouselItem(review.id)}
-        aria-hidden={review.id !== currentReviewIndex}
-      >
-        <div className="review-author">
-          <div className="avatar">
-            <img src={logo} alt="" />
-          </div>
-          <div className="details">
-            <h3 className="name">{review.name}</h3>
-            <h4 className="date">{review.date}</h4>
-          </div>
-        </div>
-        <h4 className="review-text">{review.review}</h4>
-      </div>
-    );
-  });
-
-  const handleBtnUpdate = (change: number) => {
-    let newCurrent: number = currentReviewIndex + change;
-    if (newCurrent > reviewTexts.length) {
-      newCurrent = 1;
-    } else if (newCurrent < 1) {
-      newCurrent = reviewTexts.length;
-    }
-    const newPrev: number = newCurrent - 1 < 1 ? reviewTexts.length : newCurrent - 1;
-    const newNext: number = newCurrent + 1 > reviewTexts.length ? 1 : newCurrent + 1;
-    setCurrentReviewIndex(newCurrent);
-    setPrevReviewIndex(newPrev);
-    setNextReviewIndex(newNext);
-  };
-
-  return (
-    <div>
-      <section className="reviews">
-        <div className="review-title">What People Say</div>
-        <h2 className="header-md">Trusted by Clients</h2>
-        <div className="review-carousel">{reviewBoxItems}</div>
-        <div className="slide-ctrl-container">
-          <button
-            type="button"
-            className="review-buttons"
-            onClick={() => handleBtnUpdate(-1)}
-            aria-label="Previous review"
-          >
-            <ArrowBackIcon />
-          </button>
-          <button
-            type="button"
-            className="review-buttons"
-            onClick={() => handleBtnUpdate(1)}
-            aria-label="Next review"
-          >
-            <ArrowForwardIcon />
-          </button>
-        </div>
-      </section>
-    </div>
-  );
-};
+// Four short customer reviews read better side by side than in a rotating
+// carousel: nothing moves, nothing is hidden.
+export const Reviews = () => (
+  <section className="reviews container" aria-labelledby="reviews-title">
+    <p className="eyebrow">Reviews</p>
+    <h2 id="reviews-title" className="section-title">
+      From collectors who ordered
+    </h2>
+    <ul className="reviews__grid">
+      {reviewTexts.map((review) => (
+        <li key={review.id}>
+          <figure className="review">
+            <blockquote>
+              <p>{review.review.replace(/^\s*#\d+\s*/, "")}</p>
+            </blockquote>
+            <figcaption>
+              <span className="review__name">{review.name}</span>
+              <span className="review__date">{review.date.replace(/,?\s*\d{4}$/, "")}</span>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </section>
+);

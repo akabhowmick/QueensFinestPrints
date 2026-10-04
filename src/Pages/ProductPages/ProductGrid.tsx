@@ -1,9 +1,16 @@
-import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
+import { ProductCard } from "../../Components/ProductCard/ProductCard";
 import { Product } from "../../Types/interfaces";
 
-export const ProductGrid = ({ productList }: { productList: Product[] }) => {
-  const productsDisplayed = productList.map((product) => {
-    return <SingleProduct key={product.id} product={product} displayType="" />;
-  });
-  return <div className="product-grid">{productsDisplayed}</div>;
-};
+export const ProductGrid = ({
+  productList,
+  headingLevel,
+}: {
+  productList: Product[];
+  headingLevel?: "h2" | "h3";
+}) => (
+  <div className="product-grid">
+    {productList.map((product) => (
+      <ProductCard key={product.id} product={product} headingLevel={headingLevel} />
+    ))}
+  </div>
+);

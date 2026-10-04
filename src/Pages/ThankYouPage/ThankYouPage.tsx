@@ -1,23 +1,26 @@
 import "./ThankYouPage.css";
+import { Link } from "react-router-dom";
+import { CropMarks } from "../../Components/CropMarks/CropMarks";
+
 export const ThankYouPage = () => {
   return (
-    <div className="content">
-      <div className="wrapper-1">
-        <div className="wrapper-2">
-          <h1>Thank you !</h1>
-          <p>Thank you for ordering with us </p>
-          <p>
-            You will soon hear back from us regarding your order, the timeline, and if we need
-            anything from you.
-          </p>
-          <button className="go-home">go home</button>
-        </div>
-        <div className="footer-like">
-          <p>
-            <a href="/contact-us">Have any questions?</a>
-          </p>
+    <section className="status-page container" aria-labelledby="thanks-title">
+      <div className="status-page__inner">
+        <CropMarks tone="mark" />
+        <p className="eyebrow">Order received</p>
+        <h1 id="thanks-title">Thank you.</h1>
+        <p>
+          You'll hear from us soon about your order, the timeline, and anything we need from you.
+        </p>
+        <div className="status-page__actions">
+          <Link to="/" className="btn btn-primary">
+            Back to home
+          </Link>
+          <Link to="/contact-us" className="btn btn-secondary">
+            Have a question?
+          </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
