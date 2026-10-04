@@ -3,14 +3,19 @@ import { useState, useEffect, useMemo, createContext, useContext, ReactNode } fr
 import { Product } from "../Types/interfaces";
 import { products } from "../utils/Products";
 import { sanitizeStoredCart } from "../utils/cartStorage";
-import { calculateOrderTotal, defaultSkuIdForProduct, getCatalogItem } from "../../shared/pricing";
+import {
+  calculateOrderTotal,
+  defaultSkuIdForProduct,
+  getCatalogItem,
+  productIdForSkuId,
+} from "../../shared/pricing";
 
 interface CartContextType {
   cartItems: Product[];
   total: number;
   tax: number;
   shipping: number;
-  addToCart: (id: number) => void;
+  addToCart: (id: number, skuId?: string, choiceLabel?: string) => void;
   removeFromCart: (id: number) => void;
   changeItemQuantity: (id: number, changeType: string) => void;
   changeItemCustomization: (id: number, customizationName: string, value: string) => void;
@@ -114,16 +119,26 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const addToCart = (id: number) => {
+  // requestedSkuId lets the product page add a specific size/style/bulk-pack
+  // in one step. It's only honoured if it is a real catalog SKU belonging to
+  // this product; price always comes from the catalog lookup, never the caller.
+  const addToCart = (id: number, requestedSkuId?: string, choiceLabel?: string) => {
     const product = products.find((product) => product.id === id);
     if (!product || cartItems.find((item) => item.id === id)) return;
 
-    const skuId = defaultSkuIdForProduct(String(id));
+    const requestedIsValid =
+      requestedSkuId !== undefined &&
+      productIdForSkuId(requestedSkuId) === String(id) &&
+      getCatalogItem(requestedSkuId) !== undefined;
+    const skuId = requestedIsValid ? requestedSkuId : defaultSkuIdForProduct(String(id));
     const skuEntry = skuId ? getCatalogItem(skuId) : undefined;
     const newProduct: Product = {
       ...JSON.parse(JSON.stringify(product)),
       skuId,
       price: skuEntry ? skuEntry.unitPriceCents / 100 : product.price,
+      ...(requestedIsValid && choiceLabel
+        ? { customerChoices: [{ name: "Selected Option", value: choiceLabel }] }
+        : {}),
     };
     const newCart = [...cartItems, newProduct];
     setCart(newCart);
