@@ -1,25 +1,22 @@
 import { contactFormId } from "../../utils/ApiKeys";
-import "./Contact.css";
 
 export const ContactForm = () => {
   const contactFormInput = [
     { name: "Name", label: "from_name" },
     { name: "Email", label: "reply_to" },
     { name: "Phone Number", label: "phone_number" },
-    { name: "Message", label: "message" },
   ];
 
   const contactFormInputs = contactFormInput.map(({ name, label }) => {
     return (
-      <div key={name} className="contact-form-div">
+      <div key={name} className="form-field">
         <label htmlFor={label}>{name}</label>
         <input
-          className="contact-form-input"
           id={label}
           name={label}
           type="text"
           autoComplete="off"
-          placeholder={`Your ${name}`}
+          placeholder={`Your ${name.toLowerCase()}`}
           required
         />
       </div>
@@ -36,35 +33,38 @@ export const ContactForm = () => {
     "City Skylines",
   ];
 
-  const selectClasses = (
-    <div className="contact-form-div">
-      <label htmlFor="design_of_interest">Class Of Interest</label>
-      <select className="contact-form-input" id="design_of_interest" name="design_of_interest">
-        {productOptions.map((className) => {
-          return (
-            <option key={className} value={className}>
-              {className}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
-
   return (
-    <form action={contactFormId} method="POST">
-      <div className="contact__form-container">
-        <input type="text" name="_honey" style={{ display: "none" }} />
-        <input type="hidden" name="_subject" value="Inquiry for Queens Finest Prints!" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://queensfinestprints.com/" />
-        {contactFormInputs}
-        {selectClasses}
-        <div className="submit-btn-container">
-          <button id="contact-submit-btn" type="submit" className="btn btn-primary">
-            Send Email
-          </button>
-        </div>
+    <form action={contactFormId} method="POST" className="form-card">
+      <input type="text" name="_honey" style={{ display: "none" }} />
+      <input type="hidden" name="_subject" value="Inquiry for Queens Finest Prints!" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://queensfinestprints.com/" />
+      {contactFormInputs}
+      <div className="form-field">
+        <label htmlFor="design_of_interest">What are you interested in?</label>
+        <select id="design_of_interest" name="design_of_interest">
+          {productOptions.map((className) => {
+            return (
+              <option key={className} value={className}>
+                {className}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className="form-field">
+        <label htmlFor="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell us about your idea: player, team, colors, logo…"
+          required
+        />
+      </div>
+      <div className="form-actions">
+        <button type="submit" className="btn btn-primary btn-block">
+          Send message
+        </button>
       </div>
     </form>
   );

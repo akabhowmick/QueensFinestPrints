@@ -1,0 +1,79 @@
+.crop-marks {
+  --crop-size: 14px;
+  --crop-gap: -7px;
+  --crop-color: var(--ink);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.crop-marks--mark {
+  --crop-color: var(--mark);
+}
+
+.crop-marks--hover {
+  --crop-color: var(--accent);
+}
+
+.crop-mark {
+  position: absolute;
+  width: var(--crop-size);
+  height: var(--crop-size);
+  border-color: var(--crop-color);
+  border-style: solid;
+  border-width: 0;
+  transition:
+    transform 0.28s var(--ease),
+    opacity 0.28s var(--ease);
+}
+
+.crop-mark--tl {
+  top: var(--crop-gap);
+  left: var(--crop-gap);
+  border-top-width: 1px;
+  border-left-width: 1px;
+  transform-origin: top left;
+}
+
+.crop-mark--tr {
+  top: var(--crop-gap);
+  right: var(--crop-gap);
+  border-top-width: 1px;
+  border-right-width: 1px;
+  transform-origin: top right;
+}
+
+.crop-mark--bl {
+  bottom: var(--crop-gap);
+  left: var(--crop-gap);
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  transform-origin: bottom left;
+}
+
+.crop-mark--br {
+  bottom: var(--crop-gap);
+  right: var(--crop-gap);
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  transform-origin: bottom right;
+}
+
+/* Hover variant: draw in from each corner. */
+.crop-marks--hover .crop-mark {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.crop-host:hover .crop-marks--hover .crop-mark,
+.crop-host:focus-within .crop-marks--hover .crop-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Reduced motion: marks still appear on hover/focus, just without drawing. */
+@media (prefers-reduced-motion: reduce) {
+  .crop-mark {
+    transition: none;
+  }
+}

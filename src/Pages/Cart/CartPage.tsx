@@ -1,50 +1,54 @@
-import { useEffect, useState } from "react";
-import { Product } from "../../Types/interfaces";
-import { useCartContext } from "../../providers/CartProvider";
 import "./Cart.css";
-import { CartBottom } from "./CartBottom";
+import { useCartContext } from "../../providers/CartProvider";
 import { CartItem } from "./CartItem";
+import { OrderSummary } from "./OrderSummary";
+import { EmptyCart } from "./EmptyCart";
 import { products } from "../../utils/Products";
-import { SingleProduct } from "../../Components/SingleProduct/SingleProduct";
+import { PageIntro } from "../../Components/PageIntro/PageIntro";
+import { ProductGrid } from "../ProductPages/ProductGrid";
+
+const SUGGESTION_COUNT = 4;
 
 export const CartPage = () => {
   const { cartItems } = useCartContext();
-
-  const [cartSuggestions, setCartSuggestions] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const getCartSuggestions = products.filter(
-      (item1) => !cartItems.some((item2) => item1.id === item2.id)
-    );
-    setCartSuggestions(getCartSuggestions);
-  }, [cartItems]);
-
-  const pageCartViews =
-    cartItems?.length === 0 ? (
-      <div className="empty-cart-container">
-        <h2>Your cart is empty!</h2>
-        <h3>Consider one of the following items:</h3>
-        <div className="cart-display-empty-products">
-          {cartSuggestions.map((product) => {
-            return <SingleProduct key={product.id} product={product} displayType="card" />;
-          })}
-        </div>
-      </div>
-    ) : (
-      <>
-        <div className="cart-items">
-          {cartItems?.map((item) => {
-            return <CartItem key={item.id} cartItem={item} />;
-          })}
-        </div>
-        <CartBottom cartSuggestions={cartSuggestions} />
-      </>
-    );
+  const itemCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const suggestions = products
+    .filter((product) => !cartItems.some((item) => item.id === product.id))
+    .slice(0, SUGGESTION_COUNT);
 
   return (
-    <section className="cart-page">
-      <h1 className="page-header">View Your Cart</h1>
-      <div className="cart-page-container">{pageCartViews}</div>
-    </section>
+    <div className="cart-page">
+      <PageIntro
+        eyebrow={itemCount === 0 ? "Cart" : `${itemCount} ${itemCount === 1 ? "item" : "items"}`}
+        title="Your cart"
+      />
+
+      <div className="container">
+        {cartItems.length === 0 ? (
+          <EmptyCart />
+        ) : (
+          <div className="cart-page__layout">
+            <ul className="cart-lines cart-page__lines" aria-label="Items in your cart">
+              {cartItems.map((item) => (
+                <CartItem key={item.id} cartItem={item} layout="full" />
+              ))}
+            </ul>
+            <aside className="cart-page__summary">
+              <OrderSummary />
+            </aside>
+          </div>
+        )}
+      </div>
+
+      {suggestions.length > 0 && (
+        <section className="container cart-suggestions" aria-labelledby="cart-suggestions-title">
+          <p className="eyebrow">Keep browsing</p>
+          <h2 id="cart-suggestions-title" className="cart-suggestions__title">
+            Pairs well with
+          </h2>
+          <ProductGrid productList={suggestions} />
+        </section>
+      )}
+    </div>
   );
 };

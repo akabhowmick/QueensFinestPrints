@@ -2,50 +2,64 @@ import "./Footer.css";
 
 import navbarLogo from "../../assets/Main/logo.webp";
 
-import { SiteLink } from "../../Types/interfaces";
 import { socialButtons } from "../../utils/SocialMediaLink";
-import { heroText } from "../../utils/HelpfulText";
 import { links } from "../../utils/NavbarAndFooterLinks";
 
-const footerSiteLinks: SiteLink[] = [
-  { name: "Home", path: "/" },
-  ...links,
-];
+// Rendered outside the router (see App.tsx), so plain anchors are used here.
+const shopLinks = links.filter((link) => link.path !== "/contact-us");
 
 export const Footer = () => {
-  const logoFooterLink = (
-    <a href="/" id="logo-with-title">
-      <img className="navbar-logo" src={navbarLogo} alt="Queens Finest Prints logo" />
-      <p className="footer-logo-title">Queens Finest Prints</p>
-    </a>
-  );
   return (
-    <>
-      <footer className="footer">
-        <div className="footer-left col-md-4 col-sm-6">
-          <p className="about">{heroText}</p>
-          <div id="social-links">{socialButtons}</div>
-          <p className="about">
-            For more tailor-made sites, please visit:
-            <br /> <a href="https://akashbhowmick.com/">AKA CODE</a>
+    <footer className="site-footer">
+      <div className="container site-footer__grid">
+        <div className="site-footer__brand">
+          <a href="/" className="site-footer__logo">
+            <img src={navbarLogo} alt="" width={40} height={40} />
+            <span>Queens Finest Prints</span>
+          </a>
+          <p className="site-footer__line">
+            Custom 3D-printed card stands, displays and replicas, printed to order in Queens, NY.
           </p>
         </div>
-        <div className="footer-right col-md-4 col-sm-6">
-          {logoFooterLink}
 
-          <ul className="menu">
-            {footerSiteLinks.map((link) => {
-              return (
-                <li key={link.name} aria-label={`Link to ${link.name}`}>
-                  <a aria-label={`Link to ${link.name}`} href={link.path}>
-                    {link.name}
-                  </a>
-                </li>
-              );
-            })}
+        <div>
+          <h2 className="site-footer__heading">Shop</h2>
+          <ul className="site-footer__list">
+            <li>
+              <a href="/all">All products</a>
+            </li>
+            {shopLinks.map((link) => (
+              <li key={link.path}>
+                <a href={link.path}>{link.name}</a>
+              </li>
+            ))}
           </ul>
         </div>
-      </footer>
-    </>
+
+        <div>
+          <h2 className="site-footer__heading">Help</h2>
+          <ul className="site-footer__list">
+            <li>
+              <a href="/contact-us">Contact us</a>
+            </li>
+            <li>
+              <a href="/cart">Your cart</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 className="site-footer__heading">Follow</h2>
+          <div className="site-footer__social">{socialButtons}</div>
+        </div>
+      </div>
+
+      <div className="container site-footer__base">
+        <p>© {new Date().getFullYear()} Queens Finest Prints. Printed in Queens, NY.</p>
+        <p>
+          Site by <a href="https://akashbhowmick.com/">AKA Code</a>
+        </p>
+      </div>
+    </footer>
   );
 };

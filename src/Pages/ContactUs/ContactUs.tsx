@@ -1,20 +1,22 @@
+import "./Contact.css";
 import { socialButtons } from "../../utils/SocialMediaLink";
 import { ContactForm } from "./ContactForm";
+import { PageIntro } from "../../Components/PageIntro/PageIntro";
 
 export const ContactUs = () => {
-  const socialMediaButtons = socialButtons.map((button, index) => {
-    return <div key={index}>{button}</div>;
-  });
-
   return (
     <div className="contact-page">
-      <h1 className="page-header">Contact Us!</h1>
-      <div className="form-container-with-social">
-        <div className="social-container">
-          <p className="social-container-intro">
-            Fill out the contact and we will reach out to you as soon as possible! Come check out on our other social media pages!</p>
-          <div className="contact-links">{socialMediaButtons}</div>
-        </div>
+      <PageIntro eyebrow="Contact" title="Start a custom order">
+        Tell us what you have in mind and we'll get back to you, usually within a day.
+      </PageIntro>
+      <div className="container contact-layout">
+        <aside className="contact-aside">
+          <h2>Prefer to browse first?</h2>
+          <p>
+            See more of our work, or buy through Etsy and eBay, on our other pages.
+          </p>
+          <div className="contact-social">{socialButtons}</div>
+        </aside>
         <ContactForm />
       </div>
     </div>

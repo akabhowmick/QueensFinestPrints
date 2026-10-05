@@ -1,6 +1,14 @@
 import { Product } from "../../Types/interfaces";
 import { products } from "../../utils/Products";
 import { ProductGrid } from "./ProductGrid";
+import { PageIntro } from "../../Components/PageIntro/PageIntro";
+
+const categoryLedes: Record<string, string> = {
+  "Card Stands": "Stands for slabs, one-touches and top loaders, printed with your name or logo.",
+  "Holders and Accessories": "Display holders, keychains and desk pieces to round out the collection.",
+  Stadiums: "Detailed 3D-printed replica stadiums, built to sit beside your cards.",
+  all: "Everything we print, from single-card stands to full replica stadiums.",
+};
 
 export const ProductPage = ({
   pageHeader,
@@ -9,22 +17,22 @@ export const ProductPage = ({
   pageHeader: string;
   pageContent: string;
 }) => {
-  let productList: Product[];
-
-  if (pageContent === "Card Stands") {
-    productList = products.filter((product) => product.type === "Card Stands");
-  } else if (pageContent === "Holders and Accessories") {
-    productList = products.filter((product) => product.type === "Holders and Accessories");
-  } else if (pageContent === "Stadiums") {
-    productList = products.filter((product) => product.type === "Stadiums");
-  } else {
-    productList = products;
-  }
+  const productList: Product[] =
+    pageContent === "all"
+      ? products
+      : products.filter((product) => product.type === pageContent);
 
   return (
     <div className="product-page">
-      <h1 className="page-header">{pageHeader}</h1>
-      <ProductGrid productList={productList} />
+      <PageIntro
+        eyebrow={`${productList.length} ${productList.length === 1 ? "product" : "products"}`}
+        title={pageHeader}
+      >
+        {categoryLedes[pageContent]}
+      </PageIntro>
+      <section className="container" aria-label={pageHeader}>
+        <ProductGrid productList={productList} headingLevel="h2" />
+      </section>
     </div>
   );
 };

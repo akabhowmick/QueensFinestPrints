@@ -1,17 +1,27 @@
-import "./NotFoundPage.css";
+import "../ThankYouPage/ThankYouPage.css";
+import { Link } from "react-router-dom";
+import { CropMarks } from "../../Components/CropMarks/CropMarks";
 
 export const NotFoundPage = () => {
   return (
-    <div className="bl_page404">
-      <h1>Error 404. The page does not exist</h1>
-      <p>
-        Sorry! The page you are looking for can not be found. Perhaps the page you requested was
-        moved or deleted. It is also possible that you made a small typo when entering the address.
-        Go to the main page.
-      </p>
-      <a className="bl_page404__link" href="/">
-        go home
-      </a>
-    </div>
+    <section className="status-page container" aria-labelledby="not-found-title">
+      <div className="status-page__inner">
+        <CropMarks />
+        <p className="eyebrow">Error 404</p>
+        <h1 id="not-found-title">This page is off the press.</h1>
+        <p>
+          We couldn't find what you were looking for. It may have moved, or the address may have a
+          typo.
+        </p>
+        <div className="status-page__actions">
+          <Link to="/" className="btn btn-primary">
+            Back to home
+          </Link>
+          <Link to="/all" className="btn btn-secondary">
+            Shop all products
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };

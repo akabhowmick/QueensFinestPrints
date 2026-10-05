@@ -60,13 +60,3 @@ export interface faIcon {
   link: string;
   icon: IconProp;
 }
-
-export interface HeroButton {
-  color: string;
-  imageSrc: string;
-}
-
-export interface cartTotalDetail {
-  name: string;
-  value: string;
-}

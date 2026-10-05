@@ -1,5 +1,6 @@
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import "./ImageCarousel.css";
 
 interface ImageForCarousel {
   original: string;
@@ -16,8 +17,15 @@ export const ImageCarousel = ({ images, name }: { images: string[]; name: string
     thumbnailAlt: `${name} thumbnail ${index + 1}`,
   }));
   return (
-    <div className="hero-images">
-      <ImageGallery items={imageArray} showBullets lazyLoad />
+    <div className="gallery">
+      <ImageGallery
+        items={imageArray}
+        lazyLoad
+        showPlayButton={false}
+        showBullets={false}
+        showNav={images.length > 1}
+        showThumbnails={images.length > 1}
+      />
     </div>
   );
 };

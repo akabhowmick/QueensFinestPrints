@@ -1,30 +1,29 @@
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
 
 // Context Providers
 import { CartProvider } from "./providers/CartProvider";
+import { CartUIProvider } from "./providers/CartUIProvider";
 import { UserProvider } from "./providers/UserProvider";
 
 // sections or components
 import { Footer } from "./Components/Footer/Footer";
-// import { Cart } from "./Pages/Cart/Cart";
 import { router } from "./Components/Layouts/Router";
-import FloatingCartButton from "./Pages/Cart/FloatingCart";
+import { muiTheme } from "./theme/muiTheme";
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={muiTheme}>
       <UserProvider>
         <CartProvider>
-          <RouterProvider router={router} />
-          {/* <Cart /> */}
-          <nav aria-label="Cart shortcut">
-            <FloatingCartButton />
-          </nav>
-          <Footer />
+          <CartUIProvider>
+            <RouterProvider router={router} />
+            <Footer />
+          </CartUIProvider>
         </CartProvider>
       </UserProvider>
-    </>
+    </ThemeProvider>
   );
 }
 
