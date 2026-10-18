@@ -26,6 +26,18 @@ const CartPage = lazy(() =>
 const UploadImageForm = lazy(() =>
   import("../../Pages/UploadImage/UploadImage").then((m) => ({ default: m.UploadImageForm }))
 );
+const PrivacyPolicy = lazy(() =>
+  import("../../Pages/Legal/PrivacyPolicy").then((m) => ({ default: m.PrivacyPolicy }))
+);
+const TermsOfService = lazy(() =>
+  import("../../Pages/Legal/TermsOfService").then((m) => ({ default: m.TermsOfService }))
+);
+const ReturnsPolicy = lazy(() =>
+  import("../../Pages/Legal/ReturnsPolicy").then((m) => ({ default: m.ReturnsPolicy }))
+);
+const ShippingPolicy = lazy(() =>
+  import("../../Pages/Legal/ShippingPolicy").then((m) => ({ default: m.ShippingPolicy }))
+);
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -51,6 +63,10 @@ export const router = createBrowserRouter(
       <Route path="checkout" element={<Checkout />} />
       <Route path="thanks" element={<ThankYouPage />} />
       <Route path="upload-image" element={<UploadImageForm />} />
+      <Route path="privacy" element={<PrivacyPolicy />} />
+      <Route path="terms" element={<TermsOfService />} />
+      <Route path="returns" element={<ReturnsPolicy />} />
+      <Route path="shipping" element={<ShippingPolicy />} />
       <Route path="*" element={<NotFoundPage />} />
     </Route>
   )

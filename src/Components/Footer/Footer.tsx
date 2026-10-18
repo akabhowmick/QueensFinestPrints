@@ -49,6 +49,24 @@ export const Footer = () => {
         </div>
 
         <div>
+          <h2 className="site-footer__heading">Legal</h2>
+          <ul className="site-footer__list">
+            <li>
+              <a href="/privacy">Privacy policy</a>
+            </li>
+            <li>
+              <a href="/terms">Terms of service</a>
+            </li>
+            <li>
+              <a href="/returns">Returns &amp; refunds</a>
+            </li>
+            <li>
+              <a href="/shipping">Shipping</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
           <h2 className="site-footer__heading">Follow</h2>
           <div className="site-footer__social">{socialButtons}</div>
         </div>
