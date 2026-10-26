@@ -11,19 +11,19 @@ Tracks outstanding work. Update as items land.
   - [ ] Set Netlify env vars, with `PAYPAL_ENV` scoped per deploy context
   - [ ] With real sandbox credentials: run `netlify-cli dev` locally and do
         one full sandbox checkout end to end — create order → approve →
-        capture — before this merges to `main` or deploys anywhere
+        capture. Phases 3 and 4 are already merged to `main`, so do this
+        before the site takes real orders
   - [ ] Re-run the tamper test against that live sandbox call (not just the
         unit tests), since those only exercised the functions in isolation
 
-## Phase 4 redesign — in progress, not merged
-Branch `phase-4/premium-redesign` (off `phase-2/ui-consolidation`). The
-"ink on paper" layout, cards, PDP, cart drawer, and checkout palette pass
-are built and committed locally. Still open before this can land:
+## Phase 4 redesign — merged (PR #4, 2026-10-04), follow-ups open
+The "ink on paper" layout, cards, PDP, cart drawer, and checkout palette pass
+are on `main`. Still open:
 - [ ] **Palette diverged from the written spec.** `qfp-phase-4-design.md`
       still says cyan `--accent` / magenta `--mark`. The actual build uses
       the Queens Finest Prints logo blue (`#0B3B9C`) and orange (`#F5791D`)
-      instead, at your request — the doc needs updating so it isn't
-      contradicted by the site, or the colors need reverting. Pick one.
+      instead, at your request — update the doc so the site doesn't
+      contradict it.
 - [ ] Lighthouse pass on `/` and a product page against a preview build
       (target: Performance 90+, Accessibility 95+) — not run yet
 - [ ] Keyboard-only pass: nav, mobile menu, cart drawer (focus trap /
@@ -40,9 +40,13 @@ are built and committed locally. Still open before this can land:
 - [ ] Known pre-existing gap, not a blocker: `eslint-plugin-jsx-a11y@6.10.2`
       has no release supporting `eslint@^10`. Worked around with
       `.npmrc`'s `legacy-peer-deps=true`; revisit once jsx-a11y catches up.
-- [ ] No PR yet for this branch — none until you say go, per the usual rule
 
 ## Landed
+- [x] Phase 5: privacy, terms, returns and shipping pages at `/privacy`,
+      `/terms`, `/returns`, `/shipping`, plus a footer Legal column (PR #5).
+      Merged as drafts: the text was written from what the code does, not by
+      a lawyer. See the open review item under "Later / unscoped".
+- [x] Phase 4: premium redesign merged to `main` (PR #4)
 - [x] Phase 1: correctness, accessibility, and quick security wins per the
       modernization spec (commit df13e7c)
 - [x] Phase 3: server-side price authority (`shared/pricing.ts`, two
@@ -56,6 +60,12 @@ are built and committed locally. Still open before this can land:
       `changeItemOption`/client-set-price path didn't come back
 
 ## Later / unscoped
+- [ ] Review the legal page wording before launch (`src/Pages/Legal/`).
+      Assumptions to confirm: full refund when an order is declined over
+      image rights, no cancellation once production starts, New York
+      governing law, no sales of data / no unrequested marketing, under-13
+      line, and whether orders ship outside the US. No business email is
+      listed; pages point to the contact form.
 - [ ] Confirm real print turnaround time for the product page copy. Still
       not confirmed by the client — the redesigned PDP shows "7–10 days"
       pulled from each product's own existing copy as a placeholder, with a
