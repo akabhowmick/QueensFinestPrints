@@ -26,7 +26,7 @@
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: var(--space-6);
 }
 
@@ -129,7 +129,7 @@
 
 @media (max-width: 900px) {
   .site-footer__grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   .site-footer__brand {
